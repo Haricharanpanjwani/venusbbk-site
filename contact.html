@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Venus Club & Banquet Hall</title>
+    <meta
+      name="description"
+      content="Contact Venus Club & Banquet Hall to check date availability, share your event type, and plan your celebration in the Barabanki-Lucknow area."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="topbar__inner">
+          <a class="brand" href="index.html">
+            <div class="brand__mark">V</div>
+            <div class="brand__text">
+              <strong data-site-short></strong>
+              <span data-site-area></span>
+            </div>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="amenities.html">Venue</a>
+            <a href="packages.html">Packages</a>
+            <a class="is-current" href="contact.html">Contact</a>
+          </nav>
+          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false">
+            Menu
+          </button>
+        </div>
+        <div class="mobile-nav" hidden data-mobile-nav>
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Venue</a>
+          <a href="packages.html">Packages</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="page-hero">
+          <div class="page-hero__copy hero-card">
+            <span class="eyebrow">Lead generation before complex booking flows</span>
+            <h1>Contact and availability</h1>
+            <p>
+              For venues like this, the best initial conversion is a guided inquiry rather
+              than instant online booking. Visitors should be able to call, WhatsApp, or send
+              an email quickly.
+            </p>
+            <div class="cta-row">
+              <a class="button" data-phone-link href="#">Call now</a>
+              <a class="button-secondary" data-whatsapp-link href="#">WhatsApp</a>
+              <a class="button-ghost" data-map-link href="#" target="_blank" rel="noreferrer">Directions</a>
+            </div>
+          </div>
+          <div class="page-hero__visual hero-visual--contact">
+            <div class="hero-overlay">
+              <span class="eyebrow">What to ask for</span>
+              <strong style="font-size: 2rem;">Event date, guest count, event type, catering, decor, and preferred contact method</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="contact-grid">
+            <article class="contact-card">
+              <h3>Contact details</h3>
+              <p><strong>Phone:</strong> <a data-phone-link href="#"><span data-site-phone></span></a></p>
+              <p><strong>Email:</strong> <a data-email-link href="#"><span data-site-email></span></a></p>
+              <p><strong>Address:</strong> <span data-site-address-line1></span>, <span data-site-address-line2></span></p>
+              <p><strong>Map:</strong> <a data-map-link href="#" target="_blank" rel="noreferrer">Open directions</a></p>
+            </article>
+            <article class="contact-card">
+              <h3>Suggested inquiry details</h3>
+              <ul>
+                <li>Name and mobile number</li>
+                <li>Event type</li>
+                <li>Preferred date and backup date</li>
+                <li>Expected guest count</li>
+                <li>Catering requirement</li>
+                <li>Decoration requirement</li>
+                <li>Preferred contact method</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="faq-grid">
+            <article class="faq-card">
+              <h3>Why no live booking calendar yet?</h3>
+              <p>
+                These events usually need a short discussion first, because date,
+                guest count, food, decoration, and package choices affect the offer.
+              </p>
+            </article>
+            <article class="faq-card">
+              <h3>What still needs your real information?</h3>
+              <p>
+                Phone number, WhatsApp number, exact address, Google Maps link, accurate
+                guest capacity, and real venue photos.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <p>© <span id="year"></span> <span data-site-short></span>.</p>
+        </div>
+      </footer>
+    </div>
+
+    <div class="sticky-actions-wrap">
+      <div class="sticky-actions">
+        <a data-phone-link href="#">Call</a>
+        <a data-whatsapp-link href="#">WhatsApp</a>
+        <a data-map-link href="#" target="_blank" rel="noreferrer">Directions</a>
+      </div>
+    </div>
+
+    <script src="site-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

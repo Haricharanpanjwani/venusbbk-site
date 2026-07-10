@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | Venus Club & Banquet Hall</title>
+    <meta
+      name="description"
+      content="Browse the venue gallery style for weddings, receptions, buffet layouts, celebrations, and event ambience at Venus Club & Banquet Hall."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="topbar__inner">
+          <a class="brand" href="index.html">
+            <div class="brand__mark">V</div>
+            <div class="brand__text">
+              <strong data-site-short></strong>
+              <span data-site-area></span>
+            </div>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a class="is-current" href="gallery.html">Gallery</a>
+            <a href="amenities.html">Venue</a>
+            <a href="packages.html">Packages</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false">
+            Menu
+          </button>
+        </div>
+        <div class="mobile-nav" hidden data-mobile-nav>
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Venue</a>
+          <a href="packages.html">Packages</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="page-hero">
+          <div class="page-hero__copy hero-card">
+            <span class="eyebrow">Photos are what sell a venue</span>
+            <h1>Gallery built to convert visits into inquiries</h1>
+            <p>
+              This page is structured around the categories the earlier planning called out:
+              wedding setup, reception setup, hall interiors, dining areas, outdoor spaces,
+              and arrival experience.
+            </p>
+          </div>
+          <div class="page-hero__visual hero-visual--gallery">
+            <div class="hero-overlay">
+              <span class="eyebrow">Replace with actual Venus photography</span>
+              <strong style="font-size: 2rem;">Strong real images will outperform extra text every time</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="photo-grid">
+            <article class="photo-card" data-tone="rose">
+              <div>
+                <h3>Wedding Setup</h3>
+                <p>Mandap, stage framing, guest seating, and floral ambience.</p>
+              </div>
+            </article>
+            <article class="photo-card" data-tone="gold">
+              <div>
+                <h3>Reception Setup</h3>
+                <p>Lighting mood, focal stage, and presentation-ready decor.</p>
+              </div>
+            </article>
+            <article class="photo-card" data-tone="ivory">
+              <div>
+                <h3>Hall Interior</h3>
+                <p>Room scale, ceiling treatment, and guest circulation.</p>
+              </div>
+            </article>
+            <article class="photo-card" data-tone="sage">
+              <div>
+                <h3>Dining & Buffet</h3>
+                <p>Food-service flow, buffet setup, and seating arrangement.</p>
+              </div>
+            </article>
+            <article class="photo-card" data-tone="midnight">
+              <div>
+                <h3>Outdoor & Entrance</h3>
+                <p>Arrival moment, facade impression, lawn, and parking access.</p>
+              </div>
+            </article>
+            <article class="photo-card" data-tone="pearl">
+              <div>
+                <h3>Family Celebrations</h3>
+                <p>Birthday styling, anniversary ambience, and social event versatility.</p>
+              </div>
+            </article>
+          </div>
+          <p class="note">
+            Current images are aesthetic stand-ins. Before domain launch, replace them with
+            real Venus photos for credibility and stronger local conversions.
+          </p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <p>© <span id="year"></span> <span data-site-short></span>.</p>
+        </div>
+      </footer>
+    </div>
+
+    <div class="sticky-actions-wrap">
+      <div class="sticky-actions">
+        <a data-phone-link href="#">Call</a>
+        <a data-whatsapp-link href="#">WhatsApp</a>
+        <a data-map-link href="#" target="_blank" rel="noreferrer">Directions</a>
+      </div>
+    </div>
+
+    <script src="site-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

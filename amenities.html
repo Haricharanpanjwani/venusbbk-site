@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venue & Amenities | Venus Club & Banquet Hall</title>
+    <meta
+      name="description"
+      content="See the venue overview, guest capacity, decoration support, parking, catering coordination, and hosting approach at Venus Club & Banquet Hall."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="topbar__inner">
+          <a class="brand" href="index.html">
+            <div class="brand__mark">V</div>
+            <div class="brand__text">
+              <strong data-site-short></strong>
+              <span data-site-area></span>
+            </div>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a class="is-current" href="amenities.html">Venue</a>
+            <a href="packages.html">Packages</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false">
+            Menu
+          </button>
+        </div>
+        <div class="mobile-nav" hidden data-mobile-nav>
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Venue</a>
+          <a href="packages.html">Packages</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="page-hero">
+          <div class="page-hero__copy hero-card">
+            <span class="eyebrow">Practical strengths matter</span>
+            <h1>Venue details that reduce booking hesitation</h1>
+            <p>
+              Venue pages should answer the operational questions guests and families have:
+              capacity, setup flexibility, decor support, parking, catering, and how easy it
+              is to host comfortably.
+            </p>
+          </div>
+          <div class="page-hero__visual hero-visual--venue">
+            <div class="hero-overlay">
+              <span class="eyebrow">Built for comfort and hosting flow</span>
+              <strong style="font-size: 2rem;">The page where practical confidence meets premium presentation</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="card-grid">
+            <article class="panel">
+              <h3>Capacity</h3>
+              <p>
+                Current working copy positions the venue for <span data-site-capacity></span>.
+                Replace this with the accurate guest band before launch.
+              </p>
+            </article>
+            <article class="panel">
+              <h3>Spaces</h3>
+              <p>
+                The website is ready to present indoor hall space, lawn or exterior areas,
+                stage layout, dining sections, rooms, or any venue zones that are available.
+              </p>
+            </article>
+            <article class="panel">
+              <h3>Decor & setup</h3>
+              <p>
+                Use this section to clarify decoration support, stage setup, lighting,
+                sound, and event-specific layout flexibility.
+              </p>
+            </article>
+            <article class="panel">
+              <h3>Catering coordination</h3>
+              <p>
+                Add the real catering model here: veg only, non-veg allowed, outside
+                catering allowed, or in-house only.
+              </p>
+            </article>
+            <article class="panel">
+              <h3>Parking & access</h3>
+              <p>
+                Clear arrival logistics help. Mention available parking, road approach,
+                nearby landmarks, and guest drop-off ease.
+              </p>
+            </article>
+            <article class="panel">
+              <h3>Power & comfort</h3>
+              <p>
+                Add true details for air conditioning, backup power, generator support,
+                and guest comfort amenities if available.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <p>© <span id="year"></span> <span data-site-short></span>.</p>
+        </div>
+      </footer>
+    </div>
+
+    <div class="sticky-actions-wrap">
+      <div class="sticky-actions">
+        <a data-phone-link href="#">Call</a>
+        <a data-whatsapp-link href="#">WhatsApp</a>
+        <a data-map-link href="#" target="_blank" rel="noreferrer">Directions</a>
+      </div>
+    </div>
+
+    <script src="site-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
