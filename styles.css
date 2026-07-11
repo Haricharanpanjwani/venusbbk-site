@@ -107,19 +107,19 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 16px 0;
+  padding: 14px 0;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .brand__mark {
-  width: 52px;
-  height: 52px;
-  border-radius: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
   display: grid;
   place-items: center;
   color: #fff7eb;
@@ -129,7 +129,7 @@ img {
   border: 1px solid rgba(255, 236, 201, 0.18);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
   font-family: "Bodoni Moda", Georgia, serif;
-  font-size: 1.8rem;
+  font-size: 1.55rem;
 }
 
 .brand__text strong,
@@ -146,26 +146,26 @@ h3,
 .brand__text strong {
   display: block;
   line-height: 1;
-  font-size: 1.18rem;
-  letter-spacing: 0.03em;
+  font-size: 1.03rem;
+  letter-spacing: 0.02em;
 }
 
 .brand__text span {
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   color: var(--muted);
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .nav a {
   color: var(--muted);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .nav a.is-current,
@@ -179,8 +179,9 @@ h3,
   background: rgba(255, 248, 237, 0.06);
   color: var(--ink);
   border-radius: 999px;
-  padding: 11px 15px;
-  font-weight: 700;
+  padding: 9px 14px;
+  font-size: 0.86rem;
+  font-weight: 600;
 }
 
 .mobile-nav {
@@ -198,7 +199,7 @@ h3,
   grid-template-columns: 1.08fr 0.92fr;
   gap: 28px;
   align-items: stretch;
-  padding: 54px 0 28px;
+  padding: 42px 0 22px;
 }
 
 .hero-card,
@@ -220,7 +221,7 @@ h3,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 48px;
+  padding: 40px;
   border-radius: var(--radius-xl);
   position: relative;
   overflow: hidden;
@@ -242,48 +243,48 @@ h3,
   align-items: center;
   gap: 10px;
   width: fit-content;
-  padding: 9px 16px;
+  padding: 8px 14px;
   border-radius: 999px;
   background: rgba(220, 180, 110, 0.12);
   color: var(--accent-soft);
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 h1 {
-  margin: 14px 0 12px;
-  font-size: clamp(3.2rem, 6vw, 6rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  margin: 12px 0 10px;
+  font-size: clamp(2.5rem, 4.8vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
 }
 
 h2 {
   margin: 0 0 14px;
-  font-size: clamp(2.15rem, 4vw, 3.9rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
 }
 
 h3 {
   margin: 0 0 10px;
-  font-size: clamp(1.6rem, 2vw, 2.1rem);
-  line-height: 1.05;
+  font-size: clamp(1.28rem, 1.7vw, 1.72rem);
+  line-height: 1.12;
 }
 
 .hero-card p,
 .page-hero__copy p,
 .lead {
   color: var(--muted);
-  font-size: 1.03rem;
+  font-size: 0.95rem;
   max-width: 62ch;
 }
 
 .hero-tagline {
-  margin: 22px 0 6px;
-  font-size: clamp(1.55rem, 2vw, 2.15rem);
+  margin: 18px 0 4px;
+  font-size: clamp(1.2rem, 1.7vw, 1.6rem);
   color: #fff2d6;
-  line-height: 1.15;
+  line-height: 1.2;
   max-width: 15ch;
 }
 
@@ -295,8 +296,8 @@ h3 {
 .button-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 28px;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .button,
@@ -306,10 +307,11 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px 22px;
+  padding: 11px 18px;
   border-radius: 999px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
@@ -340,7 +342,7 @@ h3 {
 .hero-visual,
 .page-hero__visual {
   position: relative;
-  min-height: 640px;
+  min-height: 560px;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -350,7 +352,7 @@ h3 {
 }
 
 .page-hero__visual {
-  min-height: 460px;
+  min-height: 400px;
 }
 
 .hero-visual--events,
@@ -373,8 +375,8 @@ h3 {
   inset: auto 24px 24px 24px;
   display: grid;
   gap: 14px;
-  padding: 26px;
-  border-radius: 24px;
+  padding: 22px;
+  border-radius: 20px;
   background: linear-gradient(180deg, rgba(16, 13, 11, 0.26), rgba(16, 13, 11, 0.7));
   border: 1px solid rgba(255, 236, 201, 0.12);
 }
@@ -399,11 +401,11 @@ h3 {
 
 .stat-grid {
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 30px;
+  margin-top: 24px;
 }
 
 .stat {
-  padding: 18px;
+  padding: 16px;
   border-radius: 22px;
   background: rgba(255, 248, 237, 0.06);
   border: 1px solid rgba(255, 236, 201, 0.1);
@@ -411,7 +413,7 @@ h3 {
 
 .stat strong {
   display: block;
-  font-size: 1.4rem;
+  font-size: 1.18rem;
   line-height: 1.05;
   color: var(--accent-soft);
   font-family: "Bodoni Moda", Georgia, serif;
@@ -419,11 +421,11 @@ h3 {
 
 .stat span {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
 }
 
 .section {
-  padding: 34px 0 52px;
+  padding: 28px 0 42px;
 }
 
 .section-heading {
@@ -431,7 +433,7 @@ h3 {
   align-items: end;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 
 .section-heading p {
@@ -447,7 +449,7 @@ h3 {
   gap: 20px;
   width: min(calc(100% - 32px), var(--content-width));
   margin: 2px auto 16px;
-  padding: 22px 28px;
+  padding: 18px 22px;
   border-radius: 30px;
   background:
     linear-gradient(135deg, rgba(87, 20, 33, 0.98), rgba(155, 61, 82, 0.85)),
@@ -459,9 +461,9 @@ h3 {
 .highlight-band strong {
   display: block;
   font-family: "Bodoni Moda", Georgia, serif;
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
+  font-size: clamp(1.25rem, 1.7vw, 1.8rem);
   color: #fff4db;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .highlight-band div:last-child {
@@ -479,7 +481,7 @@ h3 {
 .contact-card,
 .faq-card,
 .timeline-card {
-  padding: 26px;
+  padding: 22px;
   border-radius: var(--radius-lg);
 }
 
@@ -501,12 +503,12 @@ li {
 }
 
 .pill {
-  padding: 8px 13px;
+  padding: 7px 11px;
   border-radius: 999px;
   background: rgba(220, 180, 110, 0.1);
   color: var(--accent-soft);
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
 }
 
@@ -517,7 +519,7 @@ li {
 
 .showcase-card {
   position: relative;
-  min-height: 430px;
+  min-height: 390px;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -532,21 +534,21 @@ li {
 .showcase-card__overlay {
   position: absolute;
   inset: auto 0 0;
-  padding: 26px;
+  padding: 22px;
   background: linear-gradient(180deg, rgba(16, 13, 11, 0), rgba(16, 13, 11, 0.82));
 }
 
 .feature-quote {
   margin: 0 0 14px;
-  font-size: clamp(1.8rem, 2.4vw, 2.9rem);
-  line-height: 1.04;
+  font-size: clamp(1.4rem, 1.9vw, 2rem);
+  line-height: 1.08;
   color: #fff3da;
 }
 
 .quote {
   display: inline-block;
-  margin-top: 20px;
-  font-size: 1.3rem;
+  margin-top: 18px;
+  font-size: 1.02rem;
   color: var(--accent);
 }
 
@@ -560,7 +562,7 @@ li {
 
 .photo-card {
   position: relative;
-  min-height: 360px;
+  min-height: 320px;
   display: flex;
   align-items: end;
   overflow: hidden;
@@ -645,16 +647,16 @@ li {
 
 .note {
   margin-top: 12px;
-  font-size: 0.94rem;
+  font-size: 0.84rem;
   color: rgba(248, 241, 230, 0.58);
 }
 
 .footer {
-  padding: 42px 0 110px;
+  padding: 34px 0 104px;
 }
 
 .footer__inner {
-  padding: 30px;
+  padding: 26px;
   border-radius: var(--radius-xl);
   background:
     linear-gradient(180deg, rgba(255, 248, 237, 0.05), rgba(255, 248, 237, 0.02)),
@@ -691,10 +693,11 @@ li {
 }
 
 .sticky-actions a {
-  padding: 14px 10px;
+  padding: 12px 10px;
   text-align: center;
   border-radius: 999px;
-  font-weight: 800;
+  font-size: 0.84rem;
+  font-weight: 700;
   color: #fff;
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
 }
@@ -765,7 +768,7 @@ li {
   .contact-card,
   .faq-card,
   .timeline-card {
-    padding: 22px;
+    padding: 20px;
   }
 
   .card-grid,
