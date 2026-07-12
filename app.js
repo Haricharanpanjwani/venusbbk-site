@@ -325,7 +325,7 @@
 
       if (!site.inquiryEndpoint) {
         setStatus(
-          "The enquiry form design is ready. Add the live form endpoint in site-data.js to start receiving submissions.",
+          "The form is ready, but the live Apps Script endpoint still needs to be added in site-data.js before inquiries can be submitted and emailed.",
           "warning",
         );
         return;

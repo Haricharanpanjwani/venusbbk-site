@@ -1102,32 +1102,73 @@ li {
 .glass-card h3,
 .detail-card h3,
 .promo-card h3 {
-  color: #fff4df;
+  color: var(--text);
 }
 
 .form-shell p {
   margin-top: 10px;
 }
 
+.form-shell {
+  background: #fffdf9;
+  border-color: rgba(140, 122, 98, 0.16);
+}
+
+.form-kicker {
+  max-width: 52ch;
+}
+
+.contact-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.contact-points span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(183, 154, 104, 0.09);
+  color: var(--brand);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
 .inquiry-form {
   display: grid;
-  gap: 16px;
+  gap: 20px;
+  margin-top: 22px;
+}
+
+.form-section {
+  display: grid;
+  gap: 14px;
+}
+
+.form-section__title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(140, 122, 98, 0.14);
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 18px 16px;
 }
 
 .field {
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .field span {
-  color: #f7ecdc;
-  font-size: 0.78rem;
+  color: var(--text-soft);
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
@@ -1146,24 +1187,32 @@ li {
 .field select,
 .field textarea {
   width: 100%;
-  border: 1px solid rgba(255, 245, 230, 0.12);
-  border-radius: 16px;
-  background: rgba(255, 250, 242, 0.05);
+  min-height: 54px;
+  border: 1px solid rgba(140, 122, 98, 0.2);
+  border-radius: 14px;
+  background: #fff;
   color: var(--text);
-  padding: 11px 13px;
+  padding: 14px 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  appearance: none;
 }
 
 .field input::placeholder,
 .field textarea::placeholder {
-  color: rgba(246, 240, 230, 0.42);
+  color: rgba(109, 98, 91, 0.52);
 }
 
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  border-color: rgba(184, 154, 105, 0.42);
-  box-shadow: 0 0 0 3px rgba(184, 154, 105, 0.14);
+  border-color: rgba(183, 154, 104, 0.58);
+  box-shadow: 0 0 0 4px rgba(183, 154, 104, 0.14);
   outline: 0;
+}
+
+.field textarea {
+  min-height: 140px;
+  resize: vertical;
 }
 
 .field--full {
@@ -1182,13 +1231,13 @@ li {
   display: flex;
   align-items: start;
   gap: 10px;
-  padding: 4px 2px 0;
+  padding: 2px 2px 0;
   color: var(--text-soft);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .checkbox-field input {
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 .form-actions {
@@ -1204,6 +1253,12 @@ li {
 .note {
   margin: 0;
   font-size: 0.84rem;
+}
+
+.mini-note {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
 }
 
 .form-note,

@@ -102,86 +102,99 @@
             <article class="form-shell">
               <span class="eyebrow">Guided enquiry</span>
               <h3>Plan your event</h3>
-              <p>
-                Fill out only the details you know. Name, phone number, and contact consent
-                are required so the team can respond.
+              <p class="form-kicker">
+                Share the essentials first. Required fields are marked clearly so the team can respond quickly.
               </p>
+              <div class="contact-points" aria-hidden="true">
+                <span>Name and phone required</span>
+                <span>Venue visit can be requested</span>
+                <span>Email confirmation ready</span>
+              </div>
               <form class="inquiry-form" data-inquiry-form novalidate>
-                <div class="form-grid">
-                  <label class="field">
-                    <span>Name <em>*</em></span>
-                    <input type="text" name="name" required autocomplete="name" />
-                  </label>
-                  <label class="field">
-                    <span>Phone number <em>*</em></span>
-                    <input type="tel" name="phone" required autocomplete="tel" />
-                  </label>
-                  <label class="field">
-                    <span>Email</span>
-                    <input type="email" name="email" autocomplete="email" />
-                  </label>
-                  <label class="field">
-                    <span>Event type</span>
-                    <select name="eventType">
-                      <option value="">Select event type</option>
-                      <option>Wedding</option>
-                      <option>Reception</option>
-                      <option>Engagement</option>
-                      <option>Sangeet / Mehendi</option>
-                      <option>Birthday</option>
-                      <option>Anniversary</option>
-                      <option>Family Function</option>
-                      <option>Corporate Event</option>
-                      <option>Conference / Seminar</option>
-                      <option>Private Gathering</option>
-                    </select>
-                  </label>
-                  <label class="field">
-                    <span>Preferred event date</span>
-                    <input type="date" name="preferredDate" />
-                  </label>
-                  <label class="field">
-                    <span>Alternate date</span>
-                    <input type="date" name="alternateDate" />
-                  </label>
-                  <label class="field">
-                    <span>Expected guest count</span>
-                    <input type="number" name="expectedGuests" min="1" step="1" />
-                  </label>
-                  <label class="field">
-                    <span>Indoor, outdoor, or both</span>
-                    <select name="spacePreference">
-                      <option value="">Select preference</option>
-                      <option>Indoor</option>
-                      <option>Outdoor</option>
-                      <option>Both</option>
-                    </select>
-                  </label>
-                  <label class="field">
-                    <span>Rooms required</span>
-                    <input type="number" name="roomsRequired" min="0" step="1" />
-                  </label>
-                  <label class="field">
-                    <span>Number of days</span>
-                    <input type="number" name="numberOfDays" min="1" step="1" />
-                  </label>
-                  <label class="field">
-                    <span>Preferred contact method</span>
-                    <select name="preferredContactMethod">
-                      <option value="">Select contact method</option>
-                      <option>Phone call</option>
-                      <option>WhatsApp</option>
-                      <option>Email</option>
-                    </select>
-                  </label>
-                  <label class="field field--full">
-                    <span>Message or special requirements</span>
-                    <textarea
-                      name="description"
-                      rows="5"
-                      placeholder="Tell the team about your celebration, schedule, room needs, or anything else that would help."
-                    ></textarea>
-                  </label>
+                <div class="form-section">
+                  <div class="form-section__title">Contact details</div>
+                  <div class="form-grid">
+                    <label class="field">
+                      <span>Name <em>*</em></span>
+                      <input type="text" name="name" required autocomplete="name" placeholder="Your full name" />
+                    </label>
+                    <label class="field">
+                      <span>Phone number <em>*</em></span>
+                      <input type="tel" name="phone" required autocomplete="tel" placeholder="+91" />
+                    </label>
+                    <label class="field">
+                      <span>Email</span>
+                      <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
+                    </label>
+                    <label class="field">
+                      <span>Preferred contact method</span>
+                      <select name="preferredContactMethod">
+                        <option value="">Select contact method</option>
+                        <option>Phone call</option>
+                        <option>WhatsApp</option>
+                        <option>Email</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <div class="form-section__title">Event details</div>
+                  <div class="form-grid">
+                    <label class="field">
+                      <span>Event type</span>
+                      <select name="eventType">
+                        <option value="">Select event type</option>
+                        <option>Wedding</option>
+                        <option>Reception</option>
+                        <option>Engagement</option>
+                        <option>Sangeet / Mehendi</option>
+                        <option>Birthday</option>
+                        <option>Anniversary</option>
+                        <option>Family Function</option>
+                        <option>Corporate Event</option>
+                        <option>Conference / Seminar</option>
+                        <option>Private Gathering</option>
+                      </select>
+                    </label>
+                    <label class="field">
+                      <span>Expected guest count</span>
+                      <input type="number" name="expectedGuests" min="1" step="1" placeholder="Approximate guests" />
+                    </label>
+                    <label class="field">
+                      <span>Preferred event date</span>
+                      <input type="date" name="preferredDate" />
+                    </label>
+                    <label class="field">
+                      <span>Alternate date</span>
+                      <input type="date" name="alternateDate" />
+                    </label>
+                    <label class="field">
+                      <span>Indoor, outdoor, or both</span>
+                      <select name="spacePreference">
+                        <option value="">Select preference</option>
+                        <option>Indoor</option>
+                        <option>Outdoor</option>
+                        <option>Both</option>
+                      </select>
+                    </label>
+                    <label class="field">
+                      <span>Rooms required</span>
+                      <input type="number" name="roomsRequired" min="0" step="1" placeholder="If stay is needed" />
+                    </label>
+                    <label class="field">
+                      <span>Number of days</span>
+                      <input type="number" name="numberOfDays" min="1" step="1" placeholder="Event duration" />
+                    </label>
+                    <label class="field field--full">
+                      <span>Message or special requirements</span>
+                      <textarea
+                        name="description"
+                        rows="5"
+                        placeholder="Tell us about your celebration, preferred schedule, room needs, or anything useful for planning."
+                      ></textarea>
+                    </label>
+                  </div>
                 </div>
 
                 <label class="field field--hidden" aria-hidden="true">
@@ -196,9 +209,10 @@
 
                 <div class="form-actions">
                   <button class="button" type="submit">Submit Enquiry</button>
-                  <p class="form-note">Required fields: name, phone number, and contact consent.</p>
+                  <p class="form-note">Required: name, phone number, and contact consent.</p>
                 </div>
                 <p class="form-status" data-form-status aria-live="polite"></p>
+                <p class="mini-note">Every enquiry can be stored for follow-up and emailed to the venue contact.</p>
               </form>
             </article>
           </div>
