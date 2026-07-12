@@ -798,6 +798,99 @@ li {
   padding-left: 18px;
 }
 
+.inquiry-form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #fff4df;
+}
+
+.field em,
+.form-note em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 236, 201, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 248, 237, 0.05);
+  color: var(--ink);
+  padding: 12px 14px;
+  font: inherit;
+  outline: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(248, 241, 230, 0.42);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(220, 180, 110, 0.42);
+  box-shadow: 0 0 0 3px rgba(220, 180, 110, 0.1);
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-note {
+  margin: 0;
+  color: rgba(248, 241, 230, 0.56);
+  font-size: 0.82rem;
+}
+
+.form-status {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 0.84rem;
+}
+
+.form-status[data-state="success"] {
+  color: #84dba7;
+}
+
+.form-status[data-state="error"] {
+  color: #ff9f9f;
+}
+
+.form-status[data-state="warning"] {
+  color: #f2d189;
+}
+
+.form-status[data-state="loading"] {
+  color: rgba(248, 241, 230, 0.7);
+}
+
 .faq-grid {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -929,6 +1022,10 @@ li {
   .timeline-card,
   .walkthrough__panel {
     padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 
   .card-grid,

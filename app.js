@@ -115,4 +115,70 @@
 
     renderScene("hall");
   }
+
+  const inquiryForm = document.querySelector("[data-inquiry-form]");
+  if (inquiryForm) {
+    const status = inquiryForm.querySelector("[data-form-status]");
+
+    const setStatus = (message, kind) => {
+      if (!status) {
+        return;
+      }
+      status.textContent = message;
+      status.setAttribute("data-state", kind || "");
+    };
+
+    inquiryForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(inquiryForm);
+      const payload = {
+        name: (formData.get("name") || "").toString().trim(),
+        phone: (formData.get("phone") || "").toString().trim(),
+        eventType: (formData.get("eventType") || "").toString().trim(),
+        expectedGuests: (formData.get("expectedGuests") || "").toString().trim(),
+        numberOfDays: (formData.get("numberOfDays") || "").toString().trim(),
+        description: (formData.get("description") || "").toString().trim(),
+        submittedAt: new Date().toISOString(),
+      };
+
+      if (!payload.name || !payload.phone) {
+        setStatus("Please fill in the required name and phone number fields.", "error");
+        return;
+      }
+
+      if (!site.inquiryEndpoint) {
+        setStatus(
+          "The inquiry form is ready, but the Google Sheets connection has not been added yet. Add the Apps Script web app URL to site-data.js next.",
+          "warning",
+        );
+        return;
+      }
+
+      try {
+        setStatus("Submitting your inquiry...", "loading");
+        const body = new URLSearchParams(payload);
+        const response = await fetch(site.inquiryEndpoint, {
+          method: site.inquiryMethod || "POST",
+          mode: site.inquiryMode || "cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          body,
+        });
+
+        if ((site.inquiryMode || "cors") !== "no-cors" && !response.ok) {
+          throw new Error(`Submission failed with status ${response.status}`);
+        }
+
+        inquiryForm.reset();
+        setStatus("Your inquiry has been submitted successfully.", "success");
+      } catch (error) {
+        setStatus(
+          "We couldn't submit the inquiry right now. Please check the Google Apps Script deployment URL and try again.",
+          "error",
+        );
+      }
+    });
+  }
 })();

@@ -18,4 +18,7 @@ window.VENUS_SITE = {
     "A warm, spacious venue with 10 rooms, 1 banquet hall, and 1 lawn or garden area for weddings, receptions, birthdays, and large hosted celebrations.",
   metaDescription:
     "Venus Club & Banquet Hall offers 10 rooms, 1 banquet hall, 1 lawn or garden event space, and capacity for up to 1,000 guests in the Barabanki-Lucknow area.",
+  inquiryEndpoint: "",
+  inquiryMethod: "POST",
+  inquiryMode: "no-cors",
 };

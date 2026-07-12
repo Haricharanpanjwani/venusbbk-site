@@ -83,16 +83,53 @@
               <p><strong>Map:</strong> <a data-map-link href="#" target="_blank" rel="noreferrer">Open directions</a></p>
             </article>
             <article class="contact-card">
-              <h3>Suggested inquiry details</h3>
-              <ul>
-                <li>Name and mobile number</li>
-                <li>Event type</li>
-                <li>Preferred date and backup date</li>
-                <li>Expected guest count</li>
-                <li>Catering requirement</li>
-                <li>Decoration requirement</li>
-                <li>Preferred contact method</li>
-              </ul>
+              <h3>Inquiry form</h3>
+              <form class="inquiry-form" data-inquiry-form novalidate>
+                <div class="form-grid">
+                  <label class="field">
+                    <span>Name <em>*</em></span>
+                    <input type="text" name="name" required autocomplete="name" />
+                  </label>
+                  <label class="field">
+                    <span>Phone number <em>*</em></span>
+                    <input type="tel" name="phone" required autocomplete="tel" />
+                  </label>
+                  <label class="field">
+                    <span>Type of event</span>
+                    <select name="eventType">
+                      <option value="">Select event type</option>
+                      <option>Wedding</option>
+                      <option>Reception</option>
+                      <option>Birthday Party</option>
+                      <option>Anniversary</option>
+                      <option>Corporate Event</option>
+                      <option>Family Function</option>
+                      <option>Other</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>Expected guests</span>
+                    <input type="number" name="expectedGuests" min="1" step="1" />
+                  </label>
+                  <label class="field">
+                    <span>Number of days</span>
+                    <input type="number" name="numberOfDays" min="1" step="1" />
+                  </label>
+                  <label class="field field--full">
+                    <span>Description / notes</span>
+                    <textarea
+                      name="description"
+                      rows="4"
+                      placeholder="Share anything useful about the event, date flexibility, or special requirements."
+                    ></textarea>
+                  </label>
+                </div>
+                <div class="form-actions">
+                  <button class="button" type="submit">Submit inquiry</button>
+                  <p class="form-note">Fields marked with <em>*</em> are required.</p>
+                </div>
+                <p class="form-status" data-form-status aria-live="polite"></p>
+              </form>
             </article>
           </div>
         </section>

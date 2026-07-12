@@ -30,6 +30,30 @@ This repo is prepared to work as a static site for:
 - GitHub Pages
 - Cloudflare Pages
 
+## Inquiry form storage with Google Sheets
+
+The website form is ready to submit to a Google Apps Script web app.
+
+1. Create a new Google Sheet for inquiries.
+2. Open `Extensions` -> `Apps Script`.
+3. Replace the default script with the contents of [google-apps-script.gs](/Volumes/work/venusclub/google-apps-script.gs).
+4. Deploy it as a web app:
+   - Execute as: `Me`
+   - Who has access: `Anyone`
+5. Copy the deployed web app URL.
+6. Paste that URL into `inquiryEndpoint` inside [site-data.js](/Volumes/work/venusclub/site-data.js).
+7. Push the site again.
+
+Submitted inquiry columns:
+
+- `submitted_at`
+- `name`
+- `phone`
+- `event_type`
+- `expected_guests`
+- `number_of_days`
+- `description`
+
 For GitHub Pages custom domain support, keep:
 
 - `CNAME`
