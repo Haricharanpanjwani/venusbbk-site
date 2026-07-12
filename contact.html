@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Venus Club & Banquet Hall</title>
+    <title>Contact & Enquiry | Venus Club & Banquet Hall</title>
     <meta
       name="description"
-      content="Contact Venus Club & Banquet Hall to check date availability, share your event type, and plan your celebration in the Barabanki-Lucknow area."
+      content="Contact Venus Club & Banquet Hall to check availability, schedule a venue visit, and enquire about weddings, celebrations, corporate events, and guest stays."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -19,6 +19,15 @@
   <body>
     <div class="shell">
       <header class="topbar">
+        <div class="topbar-meta">
+          <div class="topbar-meta__inner">
+            <span data-site-area></span>
+            <div>
+              <span data-site-room-count></span>
+              <a data-phone-link href="#"><span data-site-phone></span></a>
+            </div>
+          </div>
+        </div>
         <div class="topbar__inner">
           <a class="brand" href="index.html">
             <div class="brand__mark">V</div>
@@ -29,22 +38,26 @@
           </a>
           <nav class="nav" aria-label="Primary">
             <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
+            <a href="venue.html">The Venue</a>
+            <a href="celebrations.html">Celebrations</a>
+            <a href="stay.html">Stay</a>
             <a href="gallery.html">Gallery</a>
-            <a href="amenities.html">Venue</a>
-            <a href="packages.html">Packages</a>
+            <a href="about.html">About</a>
             <a class="is-current" href="contact.html">Contact</a>
           </nav>
-          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false">
-            Menu
-          </button>
+          <div class="nav-cta">
+            <a class="button-ghost" data-whatsapp-link href="#">WhatsApp</a>
+            <a class="button" href="#schedule-visit">Schedule a Visit</a>
+          </div>
+          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false">Menu</button>
         </div>
         <div class="mobile-nav" hidden data-mobile-nav>
           <a href="index.html">Home</a>
-          <a href="events.html">Events</a>
+          <a href="venue.html">The Venue</a>
+          <a href="celebrations.html">Celebrations</a>
+          <a href="stay.html">Stay</a>
           <a href="gallery.html">Gallery</a>
-          <a href="amenities.html">Venue</a>
-          <a href="packages.html">Packages</a>
+          <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </div>
       </header>
@@ -52,38 +65,47 @@
       <main>
         <section class="page-hero">
           <div class="page-hero__copy hero-card">
-            <span class="eyebrow">Lead generation before complex booking flows</span>
-            <h1>Contact and availability</h1>
+            <span class="eyebrow">Contact & enquiry</span>
+            <h1>Start the conversation in the way that feels easiest.</h1>
             <p>
-              For venues like this, the best initial conversion is a guided inquiry rather
-              than instant online booking. Visitors should be able to call, WhatsApp, or send
-              an email quickly.
+              Call the venue, message on WhatsApp, request a visit, or send a guided enquiry
+              with the details the team needs to help you properly.
             </p>
             <div class="cta-row">
-              <a class="button" data-phone-link href="#">Call now</a>
-              <a class="button-secondary" data-whatsapp-link href="#">WhatsApp</a>
-              <a class="button-ghost" data-map-link href="#" target="_blank" rel="noreferrer">Directions</a>
+              <a class="button" data-phone-link href="#">Call Now</a>
+              <a class="button-secondary" data-whatsapp-link href="#">Start on WhatsApp</a>
+              <a class="button-ghost" data-map-link href="#" target="_blank" rel="noreferrer">Get Directions</a>
             </div>
           </div>
           <div class="page-hero__visual hero-visual--contact">
             <div class="hero-overlay">
-              <span class="eyebrow">What to ask for</span>
-              <strong style="font-size: 2rem;">Event date, guest count, event type, catering, decor, and preferred contact method</strong>
+              <span class="eyebrow">Best enquiry inputs</span>
+              <strong>Event type, preferred date, guest estimate, stay requirement, and your preferred contact method.</strong>
             </div>
           </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="schedule-visit">
           <div class="contact-grid">
             <article class="contact-card">
-              <h3>Contact details</h3>
+              <span class="eyebrow">Direct contact</span>
+              <h3>Venue details</h3>
               <p><strong>Phone:</strong> <a data-phone-link href="#"><span data-site-phone></span></a></p>
               <p><strong>Email:</strong> <a data-email-link href="#"><span data-site-email></span></a></p>
               <p><strong>Address:</strong> <span data-site-address-line1></span>, <span data-site-address-line2></span></p>
               <p><strong>Map:</strong> <a data-map-link href="#" target="_blank" rel="noreferrer">Open directions</a></p>
+              <p class="note">
+                Business hours can be added once confirmed. Until then, call and WhatsApp
+                remain the fastest contact paths.
+              </p>
             </article>
-            <article class="contact-card">
-              <h3>Inquiry form</h3>
+            <article class="form-shell">
+              <span class="eyebrow">Guided enquiry</span>
+              <h3>Plan your event</h3>
+              <p>
+                Fill out only the details you know. Name, phone number, and contact consent
+                are required so the team can respond.
+              </p>
               <form class="inquiry-form" data-inquiry-form novalidate>
                 <div class="form-grid">
                   <label class="field">
@@ -95,38 +117,86 @@
                     <input type="tel" name="phone" required autocomplete="tel" />
                   </label>
                   <label class="field">
-                    <span>Type of event</span>
+                    <span>Email</span>
+                    <input type="email" name="email" autocomplete="email" />
+                  </label>
+                  <label class="field">
+                    <span>Event type</span>
                     <select name="eventType">
                       <option value="">Select event type</option>
                       <option>Wedding</option>
                       <option>Reception</option>
-                      <option>Birthday Party</option>
+                      <option>Engagement</option>
+                      <option>Sangeet / Mehendi</option>
+                      <option>Birthday</option>
                       <option>Anniversary</option>
-                      <option>Corporate Event</option>
                       <option>Family Function</option>
-                      <option>Other</option>
+                      <option>Corporate Event</option>
+                      <option>Conference / Seminar</option>
+                      <option>Private Gathering</option>
                     </select>
                   </label>
                   <label class="field">
-                    <span>Expected guests</span>
+                    <span>Preferred event date</span>
+                    <input type="date" name="preferredDate" />
+                  </label>
+                  <label class="field">
+                    <span>Alternate date</span>
+                    <input type="date" name="alternateDate" />
+                  </label>
+                  <label class="field">
+                    <span>Expected guest count</span>
                     <input type="number" name="expectedGuests" min="1" step="1" />
+                  </label>
+                  <label class="field">
+                    <span>Indoor, outdoor, or both</span>
+                    <select name="spacePreference">
+                      <option value="">Select preference</option>
+                      <option>Indoor</option>
+                      <option>Outdoor</option>
+                      <option>Both</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>Rooms required</span>
+                    <input type="number" name="roomsRequired" min="0" step="1" />
                   </label>
                   <label class="field">
                     <span>Number of days</span>
                     <input type="number" name="numberOfDays" min="1" step="1" />
                   </label>
+                  <label class="field">
+                    <span>Preferred contact method</span>
+                    <select name="preferredContactMethod">
+                      <option value="">Select contact method</option>
+                      <option>Phone call</option>
+                      <option>WhatsApp</option>
+                      <option>Email</option>
+                    </select>
+                  </label>
                   <label class="field field--full">
-                    <span>Description / notes</span>
+                    <span>Message or special requirements</span>
                     <textarea
                       name="description"
-                      rows="4"
-                      placeholder="Share anything useful about the event, date flexibility, or special requirements."
+                      rows="5"
+                      placeholder="Tell the team about your celebration, schedule, room needs, or anything else that would help."
                     ></textarea>
                   </label>
                 </div>
+
+                <label class="field field--hidden" aria-hidden="true">
+                  <span>Website</span>
+                  <input type="text" name="website" tabindex="-1" autocomplete="off" />
+                </label>
+
+                <label class="checkbox-field">
+                  <input type="checkbox" name="consent" value="yes" />
+                  <span>I agree to be contacted regarding this enquiry. <em>*</em></span>
+                </label>
+
                 <div class="form-actions">
-                  <button class="button" type="submit">Submit inquiry</button>
-                  <p class="form-note">Fields marked with <em>*</em> are required.</p>
+                  <button class="button" type="submit">Submit Enquiry</button>
+                  <p class="form-note">Required fields: name, phone number, and contact consent.</p>
                 </div>
                 <p class="form-status" data-form-status aria-live="polite"></p>
               </form>
@@ -137,17 +207,18 @@
         <section class="section">
           <div class="faq-grid">
             <article class="faq-card">
-              <h3>Why no live booking calendar yet?</h3>
+              <h3>Why is the form enquiry-first?</h3>
               <p>
-                These events usually need a short discussion first, because date,
-                guest count, food, decoration, and package choices affect the offer.
+                Most venue decisions depend on date, guest count, room requirement, event
+                type, and setup preference. A guided enquiry is more useful than a rigid
+                instant-booking flow.
               </p>
             </article>
             <article class="faq-card">
-              <h3>What still needs your real information?</h3>
+              <h3>What still needs live business details?</h3>
               <p>
-                Phone number, WhatsApp number, exact address, Google Maps link, accurate
-                guest capacity, and real venue photos.
+                The final phone number, full address, business hours, and live submission
+                endpoint can all be updated centrally once confirmed.
               </p>
             </article>
           </div>
@@ -156,7 +227,31 @@
 
       <footer class="footer">
         <div class="footer__inner">
-          <p>© <span id="year"></span> <span data-site-short></span>.</p>
+          <div class="footer__grid">
+            <div>
+              <h3 data-site-business></h3>
+              <p data-site-hero></p>
+            </div>
+            <div>
+              <h3>Explore</h3>
+              <p><a href="venue.html">The Venue</a></p>
+              <p><a href="celebrations.html">Celebrations</a></p>
+              <p><a href="stay.html">Stay</a></p>
+            </div>
+            <div>
+              <h3>More</h3>
+              <p><a href="gallery.html">Gallery</a></p>
+              <p><a href="about.html">About</a></p>
+              <p><a href="contact.html">Contact</a></p>
+            </div>
+            <div>
+              <h3>Connect</h3>
+              <p><a data-phone-link href="#"><span data-site-phone></span></a></p>
+              <p><a data-email-link href="#"><span data-site-email></span></a></p>
+              <p><a data-map-link href="#" target="_blank" rel="noreferrer">Get Directions</a></p>
+            </div>
+          </div>
+          <p class="note" style="margin-top: 22px;">© <span id="year"></span> <span data-site-short></span>.</p>
         </div>
       </footer>
     </div>
@@ -165,7 +260,7 @@
       <div class="sticky-actions">
         <a data-phone-link href="#">Call</a>
         <a data-whatsapp-link href="#">WhatsApp</a>
-        <a data-map-link href="#" target="_blank" rel="noreferrer">Directions</a>
+        <a href="contact.html">Enquire</a>
       </div>
     </div>
 

@@ -23,6 +23,7 @@
   setText("[data-site-capacity]", site.guestCapacity || "");
   setText("[data-site-hero]", site.heroBlurb || "");
   setText("[data-site-email]", site.email || "");
+  setText("[data-site-room-count]", site.roomCount || "");
 
   setHref("[data-phone-link]", site.phoneHref || "#");
   setHref("[data-whatsapp-link]", site.whatsappHref || "#");
@@ -35,6 +36,17 @@
   if (year) {
     year.textContent = new Date().getFullYear();
   }
+
+  const topbar = document.querySelector(".topbar");
+  const syncHeaderState = () => {
+    if (!topbar) {
+      return;
+    }
+    topbar.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+
+  syncHeaderState();
+  window.addEventListener("scroll", syncHeaderState, { passive: true });
 
   const menuButton = document.querySelector("[data-menu-toggle]");
   const mobileNav = document.querySelector("[data-mobile-nav]");
@@ -58,19 +70,19 @@
     const scenes = {
       hall: {
         image: "venue-hall.jpeg",
-        alt: "Venus hall interior with stage lighting",
-        kicker: "Main Celebration Hall",
-        title: "Explore the central event space before guests even arrive",
+        alt: "Main banquet hall interior at Venus Club",
+        kicker: "The Banquet Hall",
+        title: "Step into the indoor space where the main celebration takes shape",
         text:
-          "See the room scale, stage anchor, and how the banquet hall can support ceremonies, receptions, and larger hosted functions for up to 1,000 guests.",
+          "Use the walkthrough to understand how the indoor hall sets the tone for ceremonies, receptions, and more formal hosted events.",
       },
       garden: {
         image: "venue-garden.jpeg",
-        alt: "Venus outdoor evening lighting in the garden area",
-        kicker: "Evening Garden Ambience",
-        title: "Move outdoors for the glow, atmosphere, and photo-friendly moments",
+        alt: "Outdoor event space at Venus Club with evening ambience",
+        kicker: "The Outdoor Celebration Space",
+        title: "Move outdoors for the atmosphere, lighting, and open-air flexibility",
         text:
-          "Switch into the lawn and garden mood to preview how outdoor lighting and evening styling can give the venue a more memorable identity.",
+          "The lawn introduces a different rhythm for guest arrivals, evening functions, outdoor dining moods, and more relaxed social celebrations.",
       },
     };
 
@@ -116,6 +128,150 @@
     renderScene("hall");
   }
 
+  const galleryGrid = document.querySelector("[data-gallery-grid]");
+  if (galleryGrid && Array.isArray(site.galleryItems)) {
+    const renderGallery = (category) => {
+      const items = site.galleryItems.filter((item) => {
+        return category === "all" ? true : item.category === category;
+      });
+
+      galleryGrid.innerHTML = items
+        .map((item, index) => {
+          return `
+            <button
+              class="gallery-card"
+              type="button"
+              data-lightbox-open
+              data-lightbox-index="${index}"
+              data-lightbox-category="${category}"
+              aria-label="Open ${item.title}"
+            >
+              <img src="${item.image}" alt="${item.alt}" loading="lazy" />
+              <span class="gallery-card__tag">${item.category}</span>
+              <div class="gallery-card__copy">
+                <strong>${item.title}</strong>
+                <span>${item.caption}</span>
+              </div>
+            </button>
+          `;
+        })
+        .join("");
+    };
+
+    const filterButtons = document.querySelectorAll("[data-gallery-filter]");
+    let activeCategory = "all";
+
+    const syncFilters = () => {
+      filterButtons.forEach((button) => {
+        button.classList.toggle(
+          "is-active",
+          button.getAttribute("data-gallery-filter") === activeCategory,
+        );
+      });
+      renderGallery(activeCategory);
+    };
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.getAttribute("data-gallery-filter") || "all";
+        syncFilters();
+      });
+    });
+
+    syncFilters();
+
+    const lightbox = document.querySelector("[data-lightbox]");
+    if (lightbox) {
+      const lightboxImage = lightbox.querySelector("[data-lightbox-image]");
+      const lightboxTitle = lightbox.querySelector("[data-lightbox-title]");
+      const lightboxText = lightbox.querySelector("[data-lightbox-text]");
+      const closeButton = lightbox.querySelector("[data-lightbox-close]");
+      const prevButton = lightbox.querySelector("[data-lightbox-prev]");
+      const nextButton = lightbox.querySelector("[data-lightbox-next]");
+      let currentItems = site.galleryItems.slice();
+      let currentIndex = 0;
+
+      const filteredItems = (category) => {
+        return site.galleryItems.filter((item) => {
+          return category === "all" ? true : item.category === category;
+        });
+      };
+
+      const renderLightbox = () => {
+        const item = currentItems[currentIndex];
+        if (!item || !lightboxImage || !lightboxTitle || !lightboxText) {
+          return;
+        }
+        lightboxImage.src = item.image;
+        lightboxImage.alt = item.alt;
+        lightboxTitle.textContent = item.title;
+        lightboxText.textContent = item.caption;
+      };
+
+      const openLightbox = (category, index) => {
+        currentItems = filteredItems(category);
+        currentIndex = Math.max(0, Math.min(index, currentItems.length - 1));
+        renderLightbox();
+        lightbox.hidden = false;
+        document.body.classList.add("has-lightbox");
+      };
+
+      const closeLightbox = () => {
+        lightbox.hidden = true;
+        document.body.classList.remove("has-lightbox");
+      };
+
+      const move = (direction) => {
+        if (!currentItems.length) {
+          return;
+        }
+        currentIndex = (currentIndex + direction + currentItems.length) % currentItems.length;
+        renderLightbox();
+      };
+
+      galleryGrid.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-lightbox-open]");
+        if (!button) {
+          return;
+        }
+        const category = button.getAttribute("data-lightbox-category") || "all";
+        const index = Number(button.getAttribute("data-lightbox-index") || "0");
+        openLightbox(category, index);
+      });
+
+      if (closeButton) {
+        closeButton.addEventListener("click", closeLightbox);
+      }
+      if (prevButton) {
+        prevButton.addEventListener("click", () => move(-1));
+      }
+      if (nextButton) {
+        nextButton.addEventListener("click", () => move(1));
+      }
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (lightbox.hidden) {
+          return;
+        }
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+        if (event.key === "ArrowLeft") {
+          move(-1);
+        }
+        if (event.key === "ArrowRight") {
+          move(1);
+        }
+      });
+    }
+  }
+
   const inquiryForm = document.querySelector("[data-inquiry-form]");
   if (inquiryForm) {
     const status = inquiryForm.querySelector("[data-form-status]");
@@ -135,28 +291,48 @@
       const payload = {
         name: (formData.get("name") || "").toString().trim(),
         phone: (formData.get("phone") || "").toString().trim(),
+        email: (formData.get("email") || "").toString().trim(),
         eventType: (formData.get("eventType") || "").toString().trim(),
+        preferredDate: (formData.get("preferredDate") || "").toString().trim(),
+        alternateDate: (formData.get("alternateDate") || "").toString().trim(),
         expectedGuests: (formData.get("expectedGuests") || "").toString().trim(),
-        numberOfDays: (formData.get("numberOfDays") || "").toString().trim(),
+        spacePreference: (formData.get("spacePreference") || "").toString().trim(),
+        roomsRequired: (formData.get("roomsRequired") || "").toString().trim(),
+        preferredContactMethod: (formData.get("preferredContactMethod") || "").toString().trim(),
         description: (formData.get("description") || "").toString().trim(),
+        numberOfDays: (formData.get("numberOfDays") || "").toString().trim(),
+        sourcePage: window.location.pathname,
         submittedAt: new Date().toISOString(),
       };
+
+      const honeypot = (formData.get("website") || "").toString().trim();
+      const hasConsent = formData.get("consent") === "yes";
+
+      if (honeypot) {
+        setStatus("We couldn't validate the submission. Please try again.", "error");
+        return;
+      }
 
       if (!payload.name || !payload.phone) {
         setStatus("Please fill in the required name and phone number fields.", "error");
         return;
       }
 
+      if (!hasConsent) {
+        setStatus("Please confirm that the team can contact you about your enquiry.", "error");
+        return;
+      }
+
       if (!site.inquiryEndpoint) {
         setStatus(
-          "The inquiry form is ready, but the Google Sheets connection has not been added yet. Add the Apps Script web app URL to site-data.js next.",
+          "The enquiry form design is ready. Add the live form endpoint in site-data.js to start receiving submissions.",
           "warning",
         );
         return;
       }
 
       try {
-        setStatus("Submitting your inquiry...", "loading");
+        setStatus("Submitting your enquiry...", "loading");
         const body = new URLSearchParams(payload);
         const response = await fetch(site.inquiryEndpoint, {
           method: site.inquiryMethod || "POST",
@@ -172,10 +348,10 @@
         }
 
         inquiryForm.reset();
-        setStatus("Your inquiry has been submitted successfully.", "success");
+        setStatus("Your enquiry has been submitted successfully.", "success");
       } catch (error) {
         setStatus(
-          "We couldn't submit the inquiry right now. Please check the Google Apps Script deployment URL and try again.",
+          "We couldn't submit the enquiry right now. Please check the connected endpoint and try again.",
           "error",
         );
       }
