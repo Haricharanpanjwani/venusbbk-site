@@ -90,6 +90,34 @@ img {
   backdrop-filter: blur(20px);
 }
 
+.topbar-meta {
+  border-bottom: 1px solid rgba(255, 248, 237, 0.08);
+  color: rgba(248, 241, 230, 0.6);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.topbar-meta__inner {
+  width: min(calc(100% - 32px), var(--content-width));
+  margin: 0 auto;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar-meta__inner div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.topbar-meta a {
+  color: #fff2d3;
+}
+
 .topbar__inner,
 .section,
 .footer__inner,
@@ -202,6 +230,10 @@ h3,
   padding: 42px 0 22px;
 }
 
+.hero--editorial {
+  padding-top: 34px;
+}
+
 .hero-card,
 .panel,
 .photo-card,
@@ -290,6 +322,20 @@ h3 {
 
 .hero-tagline span {
   color: var(--accent);
+}
+
+.hero-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 18px;
+  margin-top: 22px;
+  color: rgba(248, 241, 230, 0.64);
+  font-size: 0.84rem;
+}
+
+.hero-facts strong {
+  color: #fff2d3;
+  font-weight: 700;
 }
 
 .cta-row,
@@ -517,11 +563,116 @@ li {
   align-items: stretch;
 }
 
+.space-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.space-card,
+.service-card {
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 237, 0.1), rgba(255, 248, 237, 0.04)),
+    rgba(24, 18, 15, 0.86);
+  border: 1px solid rgba(255, 236, 201, 0.12);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.space-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.space-card__body {
+  padding: 20px 22px 24px;
+}
+
+.space-meta {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.space-card__rooms {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at center, rgba(220, 180, 110, 0.22), transparent 58%),
+    linear-gradient(180deg, rgba(127, 31, 47, 0.28), rgba(24, 18, 15, 0.84));
+}
+
+.space-card__rooms-count {
+  display: block;
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: clamp(4rem, 7vw, 5.8rem);
+  line-height: 0.9;
+  color: #fff0cf;
+}
+
+.space-card__rooms-label {
+  display: block;
+  margin-top: 10px;
+  color: rgba(248, 241, 230, 0.7);
+  font-size: 0.86rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .walkthrough {
   display: grid;
   grid-template-columns: 1.18fr 0.82fr;
   gap: 18px;
   align-items: start;
+}
+
+.editorial-band {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.editorial-band__copy,
+.editorial-band__visual {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 236, 201, 0.12);
+  box-shadow: var(--shadow);
+}
+
+.editorial-band__copy {
+  padding: 26px;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 237, 0.1), rgba(255, 248, 237, 0.04)),
+    rgba(24, 18, 15, 0.86);
+}
+
+.editorial-band__visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.service-card {
+  padding: 22px;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .walkthrough__stage,
@@ -969,6 +1120,7 @@ li {
   .hero,
   .page-hero,
   .walkthrough,
+  .editorial-band,
   .showcase-grid,
   .contact-grid,
   .footer__grid,
@@ -982,7 +1134,9 @@ li {
   .photo-grid,
   .offer-grid,
   .luxury-grid,
-  .stat-grid {
+  .stat-grid,
+  .space-grid,
+  .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1010,6 +1164,22 @@ li {
     padding: 0 16px 18px;
     background: rgba(12, 10, 9, 0.92);
   }
+
+  .topbar-meta__inner {
+    min-height: auto;
+    padding: 10px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topbar-meta__inner div {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  .section-heading {
+    align-items: start;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1020,7 +1190,9 @@ li {
   .contact-card,
   .faq-card,
   .timeline-card,
-  .walkthrough__panel {
+  .walkthrough__panel,
+  .service-card,
+  .editorial-band__copy {
     padding: 20px;
   }
 
@@ -1032,7 +1204,10 @@ li {
   .photo-grid,
   .offer-grid,
   .luxury-grid,
-  .stat-grid {
+  .stat-grid,
+  .space-grid,
+  .service-grid,
+  .hero-facts {
     grid-template-columns: 1fr;
   }
 
@@ -1054,12 +1229,67 @@ li {
     max-width: none;
   }
 
+  .topbar__inner {
+    padding: 12px 0;
+  }
+
+  .brand__mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+  }
+
+  .cta-row,
+  .button-row,
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button,
+  .button-secondary,
+  .button-ghost {
+    width: 100%;
+  }
+
+  .hero-overlay {
+    inset: auto 16px 16px 16px;
+    padding: 18px;
+  }
+
+  .hero-overlay strong {
+    font-size: 1.55rem !important;
+  }
+
+  .space-card img,
+  .space-card__rooms,
+  .editorial-band__visual img {
+    min-height: 0;
+    height: 220px;
+  }
+
+  .highlight-band {
+    padding: 18px;
+  }
+
   .showcase-card {
     min-height: 360px;
   }
 
   .walkthrough__media {
     min-height: 320px;
+  }
+
+  .tour-hotspot {
+    padding: 8px 12px;
+    font-size: 0.72rem;
   }
 
   .tour-scene {

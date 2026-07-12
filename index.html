@@ -19,6 +19,15 @@
   <body>
     <div class="shell">
       <header class="topbar">
+        <div class="topbar-meta">
+          <div class="topbar-meta__inner">
+            <span>Barabanki-Lucknow Area</span>
+            <div>
+              <span>Up to 1,000 guests</span>
+              <a data-phone-link href="#"><span data-site-phone></span></a>
+            </div>
+          </div>
+        </div>
         <div class="topbar__inner">
           <a class="brand" href="index.html">
             <div class="brand__mark">V</div>
@@ -28,31 +37,31 @@
             </div>
           </a>
           <nav class="nav" aria-label="Primary">
-            <a class="is-current" href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="amenities.html">Venue</a>
-            <a href="packages.html">Packages</a>
-            <a href="contact.html">Contact</a>
+            <a class="is-current" href="#hero">Overview</a>
+            <a href="#spaces">Spaces</a>
+            <a href="#walkthrough">Walkthrough</a>
+            <a href="#occasions">Occasions</a>
+            <a href="#enquire">Enquire</a>
           </nav>
           <button class="menu-button" type="button" data-menu-toggle aria-expanded="false">
             Menu
           </button>
         </div>
         <div class="mobile-nav" hidden data-mobile-nav>
-          <a href="index.html">Home</a>
-          <a href="events.html">Events</a>
+          <a href="#hero">Overview</a>
+          <a href="#spaces">Spaces</a>
+          <a href="#walkthrough">Walkthrough</a>
+          <a href="#occasions">Occasions</a>
+          <a href="#enquire">Enquire</a>
           <a href="gallery.html">Gallery</a>
-          <a href="amenities.html">Venue</a>
-          <a href="packages.html">Packages</a>
           <a href="contact.html">Contact</a>
         </div>
       </header>
 
       <main>
-        <section class="hero">
+        <section class="hero hero--editorial" id="hero">
           <div class="hero-card">
-            <span class="eyebrow">Barabanki-Lucknow Area</span>
+            <span class="eyebrow">Wedding venue and celebration club</span>
             <h1 data-site-business>Venus Club & Banquet Hall</h1>
             <div class="hero-tagline">
               <span data-site-tagline>One Destination for Every Celebration</span>
@@ -66,29 +75,17 @@
               <a class="button-secondary" data-whatsapp-link href="#">WhatsApp Us</a>
               <a class="button-ghost" href="#walkthrough">Open Walkthrough</a>
             </div>
-            <div class="stat-grid">
-              <div class="stat">
-                <strong data-site-capacity>150-800 guests</strong>
-                <span>Flexible event scale</span>
-              </div>
-              <div class="stat">
-                <strong>1 banquet hall + 1 lawn</strong>
-                <span>Indoor and outdoor hosting</span>
-              </div>
-              <div class="stat">
-                <strong>10 rooms</strong>
-                <span>Stay and event convenience</span>
-              </div>
-              <div class="stat">
-                <strong>Parking access</strong>
-                <span>Smooth guest arrival</span>
-              </div>
+            <div class="hero-facts">
+              <span><strong data-site-capacity>Up to 1,000 guests</strong> hosting scale</span>
+              <span><strong>1 banquet hall</strong> for core celebrations</span>
+              <span><strong>1 lawn / garden</strong> for open-air evenings</span>
+              <span><strong>10 rooms</strong> for family convenience</span>
             </div>
           </div>
           <div class="hero-visual">
             <div class="hero-overlay">
-              <span class="eyebrow">A venue with atmosphere</span>
-              <strong style="font-size: 2rem;">Elegant lighting, refined interiors, and a celebration mood that already feels special</strong>
+              <span class="eyebrow">Venue atmosphere</span>
+              <strong style="font-size: 2rem;">A warm hall, a glowing garden, and enough scale to host the event properly.</strong>
             </div>
           </div>
         </section>
@@ -96,18 +93,75 @@
         <div class="highlight-band">
           <div>
             <strong>Built with dreams. Opened with blessings.</strong>
-            <div>Venus is designed to feel graceful, warm, and memorable from the first look to the final sendoff.</div>
+            <div>Designed for weddings, receptions, birthdays, and hosted family occasions with a clearer, more premium guest journey.</div>
           </div>
-          <a class="button-secondary" data-phone-link href="#">Call <span data-site-phone>+91 00000 00000</span></a>
+          <a class="button-secondary" href="#enquire">Block your date</a>
         </div>
+
+        <section class="section" id="spaces">
+          <div class="section-heading">
+            <div>
+              <h2>Spaces designed for different moments of the event</h2>
+              <p class="lead">
+                From indoor ceremonies to open-air evenings and family stay support, the
+                venue is arranged to make each part of the celebration feel considered.
+              </p>
+            </div>
+            <a class="button-ghost" href="amenities.html">See venue details</a>
+          </div>
+          <div class="space-grid">
+            <article class="space-card">
+              <img src="venue-hall.jpeg" alt="Main banquet hall at Venus Club" />
+              <div class="space-card__body">
+                <span class="eyebrow">01</span>
+                <h3>Main Banquet Hall</h3>
+                <p>A calm, premium interior for ceremony stages, receptions, formal gatherings, and weather-safe event hosting.</p>
+                <ul class="space-meta">
+                  <li>Indoor celebration anchor</li>
+                  <li>Stage-focused layout</li>
+                  <li>Guest flow and dining flexibility</li>
+                </ul>
+              </div>
+            </article>
+            <article class="space-card">
+              <img src="venue-garden.jpeg" alt="Lawn and garden ambience at Venus Club" />
+              <div class="space-card__body">
+                <span class="eyebrow">02</span>
+                <h3>Lawn / Garden Area</h3>
+                <p>Open-air atmosphere for evening receptions, welcome gatherings, photo moments, and events that benefit from a softer outdoor mood.</p>
+                <ul class="space-meta">
+                  <li>Lighting-led ambience</li>
+                  <li>Outdoor celebrations</li>
+                  <li>High-visual guest arrival</li>
+                </ul>
+              </div>
+            </article>
+            <article class="space-card">
+              <div class="space-card__rooms">
+                <span class="space-card__rooms-count">10</span>
+                <span class="space-card__rooms-label">rooms on site</span>
+              </div>
+              <div class="space-card__body">
+                <span class="eyebrow">03</span>
+                <h3>Rooms for family stay and staging</h3>
+                <p>Useful for the people closest to the event: bridal prep, family coordination, short stays, and hosting convenience across multi-part functions.</p>
+                <ul class="space-meta">
+                  <li>Family-ready support</li>
+                  <li>Useful for event preparation</li>
+                  <li>More complete hosting experience</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
 
         <section class="section" id="walkthrough">
           <div class="section-heading">
             <div>
-              <h2>Interactive venue walkthrough</h2>
+              <h2>Tap-through walkthrough</h2>
               <p class="lead">
-                Inspired by modern home-listing experiences, this gives visitors a
-                tap-to-explore preview of key areas before they inquire.
+                Move through the venue before you enquire. Start with the main hall, then
+                step into the outdoor setting to understand the atmosphere from both sides.
               </p>
             </div>
             <a class="button-ghost" href="gallery.html">See all venue photos</a>
@@ -183,19 +237,19 @@
                 </div>
               </div>
               <div class="walkthrough__panel">
-                <span class="eyebrow">What strong venue sites do well</span>
+                <span class="eyebrow">Venue facts</span>
                 <div class="insight-list">
                   <article class="insight-item">
-                    <strong>Media first</strong>
-                    <p>Top venue websites lead with immersive imagery before asking visitors to read long descriptions.</p>
+                    <strong>Capacity</strong>
+                    <p>Designed to host up to 1,000 guests across celebration formats.</p>
                   </article>
                   <article class="insight-item">
-                    <strong>Clear event paths</strong>
-                    <p>They quickly show how the venue works for weddings, social celebrations, and formal hosted gatherings.</p>
+                    <strong>Property mix</strong>
+                    <p>Indoor hall, outdoor lawn, and rooms that support the event beyond the main function itself.</p>
                   </article>
                   <article class="insight-item">
-                    <strong>Fast inquiry cues</strong>
-                    <p>Phone, WhatsApp, and direct availability actions stay visible instead of getting buried in the footer.</p>
+                    <strong>Best use</strong>
+                    <p>Weddings, receptions, birthdays, anniversaries, family occasions, and larger hosted evenings.</p>
                   </article>
                 </div>
               </div>
@@ -203,41 +257,13 @@
           </div>
         </section>
 
-        <section class="section">
-          <div class="showcase-grid">
-            <article class="showcase-card">
-              <img src="venue-hall.jpeg" alt="Venus hall interior with stage lighting" />
-              <div class="showcase-card__overlay">
-                <p class="feature-quote">A spacious hall with a polished stage backdrop and a calm, premium visual rhythm.</p>
-              </div>
-            </article>
-            <article class="contact-card">
-              <span class="eyebrow">Signature Experience</span>
-              <h2>Celebrations that look elevated before decor even begins</h2>
-              <p class="lead">
-                The venue already carries warmth through lighting, volume, and finish.
-                That gives weddings, receptions, birthdays, and curated events a more
-                polished starting point, especially with the flexibility of 10 rooms, a
-                dedicated banquet hall, and a lawn or garden event area.
-              </p>
-              <div class="pill-row">
-                <span class="pill">Elegant ambience</span>
-                <span class="pill">Flexible hosting scale</span>
-                <span class="pill">Photo-friendly interiors</span>
-              </div>
-              <span class="quote">“One Destination for Every Celebration”</span>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
+        <section class="section" id="occasions">
           <div class="section-heading">
             <div>
-              <h2>Event-ready spaces with a stronger sense of taste and occasion</h2>
+              <h2>Occasions the venue is well suited for</h2>
               <p class="lead">
-                Venus should feel premium, not overly ornate. The experience is about
-                good proportions, warm lighting, and a venue that becomes more beautiful
-                once each family brings its own celebration style.
+                Whether the event is grand, intimate, family-led, or professionally hosted,
+                the setting should feel right from the first look.
               </p>
             </div>
           </div>
@@ -245,8 +271,8 @@
             <article class="panel">
               <h3>Weddings & receptions</h3>
               <p>
-                A celebratory setup for ceremonies, receptions, stage moments, family
-                photos, and guest comfort throughout the event.
+                Built for ceremony stages, family hosting, photo moments, guest movement,
+                and the formality a wedding evening usually demands.
               </p>
               <div class="pill-row">
                 <span class="pill">Stage decor</span>
@@ -255,10 +281,10 @@
               </div>
             </article>
             <article class="panel">
-              <h3>Birthdays & family functions</h3>
+              <h3>Birthdays & family celebrations</h3>
               <p>
-                Flexible layouts for intimate celebrations and lively larger gatherings
-                with decoration and food coordination support.
+                Useful for anniversaries, birthdays, welcome dinners, and other family-led
+                events where comfort and mood matter more than complexity.
               </p>
               <div class="pill-row">
                 <span class="pill">Flexible seating</span>
@@ -269,8 +295,8 @@
             <article class="panel">
               <h3>Corporate & social events</h3>
               <p>
-                Suitable for business meetings, conferences, community programs, and
-                hosted functions that require an organized venue presence.
+                Suitable for hosted conferences, community programs, launch evenings, and
+                formal gatherings that need a dependable, polished setting.
               </p>
               <div class="pill-row">
                 <span class="pill">Presentation space</span>
@@ -282,70 +308,47 @@
         </section>
 
         <section class="section">
-          <div class="section-heading">
-            <div>
-              <h2>Venue moments that already feel memorable</h2>
+          <div class="editorial-band">
+            <div class="editorial-band__copy">
+              <span class="eyebrow">A venue with warmth and presence</span>
+              <h2>Elegant enough for milestone celebrations, flexible enough for every format.</h2>
               <p class="lead">
-                The first two cards now use your actual venue images so the website starts
-                feeling more real, credible, and distinct from generic banquet templates.
+                Venus is built to welcome weddings, receptions, anniversaries, birthdays,
+                and formal gatherings with a setting that feels refined, open, and easy to
+                host within.
               </p>
+              <div class="button-row">
+                <a class="button" href="gallery.html">Explore the gallery</a>
+                <a class="button-ghost" href="events.html">View event pages</a>
+              </div>
             </div>
-            <a class="button-ghost" href="gallery.html">Explore full gallery</a>
-          </div>
-          <div class="photo-grid">
-            <article class="photo-card" data-tone="rose">
-              <div>
-                <h3>Wedding Decor</h3>
-                <p>Stage styling, floral framing, and ceremonial presentation.</p>
-              </div>
-            </article>
-            <article class="photo-card" data-tone="gold">
-              <div>
-                <h3>Reception Ambience</h3>
-                <p>Lighting, layout, and guest-ready celebration atmosphere.</p>
-              </div>
-            </article>
-            <article class="photo-card" data-tone="ivory">
-              <div>
-                <h3>Dining Experience</h3>
-                <p>Buffet, table setup, and movement designed for comfort.</p>
-              </div>
-            </article>
+            <div class="editorial-band__visual">
+              <img src="venue-garden.jpeg" alt="Venus garden lighting and outdoor ambience" />
+            </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="section-heading">
-            <div>
-              <h2>Why families and organizers should choose Venus</h2>
-            </div>
-          </div>
-          <div class="timeline">
-            <article class="timeline-card">
-              <h3>1. Easy inquiry</h3>
-              <p>
-                Start with a phone call, WhatsApp message, or availability inquiry so the
-                discussion stays simple and fast.
-              </p>
+          <div class="service-grid">
+            <article class="service-card">
+              <span class="eyebrow">01</span>
+              <h3>Indoor and outdoor balance</h3>
+              <p>A proper mix of banquet hall and lawn gives hosts the freedom to plan around mood, weather, and guest experience.</p>
             </article>
-            <article class="timeline-card">
-              <h3>2. Tailored planning</h3>
-              <p>
-                Match the event date, guest count, catering needs, and celebration type
-                to the right setup and package direction.
-              </p>
+            <article class="service-card">
+              <span class="eyebrow">02</span>
+              <h3>Hosting with convenience</h3>
+              <p>On-site rooms help close family and event coordinators stay closer to the celebration and manage it more comfortably.</p>
             </article>
-            <article class="timeline-card">
-              <h3>3. Confident hosting</h3>
-              <p>
-                Welcome guests into a venue designed to feel festive, practical, and
-                memorable from entrance to final sendoff.
-              </p>
+            <article class="service-card">
+              <span class="eyebrow">03</span>
+              <h3>Scale for larger gatherings</h3>
+              <p>With capacity for up to 1,000 guests, the venue is ready for events that need energy, movement, and a more complete arrival experience.</p>
             </article>
           </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="enquire">
           <div class="contact-grid">
             <article class="contact-card">
               <h3>Venue snapshot</h3>
@@ -361,10 +364,10 @@
               </p>
             </article>
             <article class="contact-card">
-              <h3>Start your inquiry</h3>
+              <h3>Block your date</h3>
               <p>
-                Share your event date, celebration type, and expected guest count so the
-                conversation can move quickly toward availability, venue fit, and package direction.
+                Share your event type, expected guest count, and date direction so the team
+                can respond with availability and the right setup path quickly.
               </p>
               <div class="button-row">
                 <a class="button" href="contact.html">Open contact page</a>
