@@ -64,7 +64,7 @@
             <div class="cta-row">
               <a class="button" href="contact.html">Check Availability</a>
               <a class="button-secondary" data-whatsapp-link href="#">WhatsApp Us</a>
-              <a class="button-ghost" href="gallery.html">View Gallery</a>
+              <a class="button-ghost" href="#walkthrough">Open Walkthrough</a>
             </div>
             <div class="stat-grid">
               <div class="stat">
@@ -100,6 +100,108 @@
           </div>
           <a class="button-secondary" data-phone-link href="#">Call <span data-site-phone>+91 00000 00000</span></a>
         </div>
+
+        <section class="section" id="walkthrough">
+          <div class="section-heading">
+            <div>
+              <h2>Interactive venue walkthrough</h2>
+              <p class="lead">
+                Inspired by modern home-listing experiences, this gives visitors a
+                tap-to-explore preview of key areas before they inquire.
+              </p>
+            </div>
+            <a class="button-ghost" href="gallery.html">See all venue photos</a>
+          </div>
+          <div class="walkthrough" data-tour>
+            <div class="walkthrough__stage">
+              <div class="walkthrough__media">
+                <img
+                  data-tour-image
+                  src="venue-hall.jpeg"
+                  alt="Venus hall interior with stage lighting"
+                />
+                <button
+                  class="tour-hotspot"
+                  type="button"
+                  data-scene-show="hall"
+                  data-scene-target="garden"
+                  style="--x: 72%; --y: 36%;"
+                >
+                  <span></span>
+                  View evening lawn
+                </button>
+                <button
+                  class="tour-hotspot"
+                  type="button"
+                  data-scene-show="hall"
+                  data-scene-target="garden"
+                  style="--x: 84%; --y: 72%;"
+                >
+                  <span></span>
+                  See outdoor ambience
+                </button>
+                <button
+                  class="tour-hotspot"
+                  type="button"
+                  data-scene-show="garden"
+                  data-scene-target="hall"
+                  style="--x: 50%; --y: 64%;"
+                >
+                  <span></span>
+                  Enter main hall
+                </button>
+              </div>
+              <div class="walkthrough__caption">
+                <div>
+                  <span class="eyebrow" data-tour-kicker>Main Celebration Hall</span>
+                  <h3 data-tour-title>Explore the space the way guests would experience it</h3>
+                </div>
+                <p data-tour-text>
+                  Start in the hall to understand scale, stage presence, and circulation, then
+                  jump into the evening garden mood with a single tap.
+                </p>
+              </div>
+            </div>
+            <aside class="walkthrough__sidebar">
+              <div class="walkthrough__panel">
+                <span class="eyebrow">Scenes</span>
+                <div class="tour-scenes">
+                  <button class="tour-scene is-active" type="button" data-tour-scene="hall">
+                    <img src="venue-hall.jpeg" alt="Hall preview thumbnail" />
+                    <div>
+                      <strong>Main Hall</strong>
+                      <span>Stage, volume, guest flow</span>
+                    </div>
+                  </button>
+                  <button class="tour-scene" type="button" data-tour-scene="garden">
+                    <img src="venue-garden.jpeg" alt="Garden preview thumbnail" />
+                    <div>
+                      <strong>Evening Garden</strong>
+                      <span>Lighting, ambience, photo moments</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div class="walkthrough__panel">
+                <span class="eyebrow">What strong venue sites do well</span>
+                <div class="insight-list">
+                  <article class="insight-item">
+                    <strong>Media first</strong>
+                    <p>Top venue websites lead with immersive imagery before asking visitors to read long descriptions.</p>
+                  </article>
+                  <article class="insight-item">
+                    <strong>Clear event paths</strong>
+                    <p>They quickly show how the venue works for weddings, social celebrations, and formal hosted gatherings.</p>
+                  </article>
+                  <article class="insight-item">
+                    <strong>Fast inquiry cues</strong>
+                    <p>Phone, WhatsApp, and direct availability actions stay visible instead of getting buried in the footer.</p>
+                  </article>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
 
         <section class="section">
           <div class="showcase-grid">
