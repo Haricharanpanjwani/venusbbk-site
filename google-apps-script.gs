@@ -1,5 +1,8 @@
+const SPREADSHEET_ID = "19Alx0A86kjyc8JCR0f3DS0uVgxPHjpc4iApsYOeV7Ww";
+
 function getOrCreateSheet_() {
-  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  // Use a fixed sheet so the deployed web app always writes to the correct spreadsheet.
+  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
   const sheetName = "Inquiries";
   let sheet = spreadsheet.getSheetByName(sheetName);
 
