@@ -17,8 +17,8 @@
   --accent-soft: #ddceb0;
   --earth: #8c7661;
   --success: #8ac39e;
-  --danger: #ffb1a3;
-  --warning: #f0c97e;
+  --danger: #c85b4a;
+  --warning: #a06b12;
   --shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.18);
   --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.16);
   --radius-xl: 32px;
@@ -1278,10 +1278,12 @@ li {
 
 .form-status[data-state="error"] {
   color: var(--danger);
+  font-weight: 500;
 }
 
 .form-status[data-state="warning"] {
   color: var(--warning);
+  font-weight: 500;
 }
 
 .form-status[data-state="loading"] {
