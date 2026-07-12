@@ -275,6 +275,72 @@
   const inquiryForm = document.querySelector("[data-inquiry-form]");
   if (inquiryForm) {
     const status = inquiryForm.querySelector("[data-form-status]");
+    const invalidNameValues = new Set([
+      "abc",
+      "asdf",
+      "asdfg",
+      "demo",
+      "dummy",
+      "fake",
+      "guest",
+      "name",
+      "na",
+      "none",
+      "nobody",
+      "no name",
+      "not sure",
+      "null",
+      "qwerty",
+      "sample",
+      "test",
+      "testing",
+      "unknown",
+      "user",
+      "visitor",
+      "xxx",
+      "xyz",
+    ]);
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    const hasRepeatedCharacters = (value) => /(.)\1{2,}/i.test(value);
+    const digitsOnly = (value) => value.replace(/\D/g, "");
+
+    const isValidName = (value) => {
+      const normalized = value.toLowerCase().replace(/[^a-z\s'-]/g, " ").replace(/\s+/g, " ").trim();
+      const lettersOnly = normalized.replace(/[^a-z]/g, "");
+      const parts = normalized.split(" ").filter(Boolean);
+
+      if (lettersOnly.length < 3) {
+        return false;
+      }
+
+      if (!parts.length) {
+        return false;
+      }
+
+      if (invalidNameValues.has(normalized) || invalidNameValues.has(lettersOnly)) {
+        return false;
+      }
+
+      if (parts.length === 1 && parts[0].length <= 3) {
+        return false;
+      }
+
+      if (hasRepeatedCharacters(lettersOnly)) {
+        return false;
+      }
+
+      if (/^[A-Z]{2,4}$/.test(value.trim())) {
+        return false;
+      }
+
+      return /[a-z]/i.test(value);
+    };
+
+    const isValidPhone = (value) => {
+      const digits = digitsOnly(value);
+      return digits.length >= 10 && digits.length <= 15;
+    };
 
     const setStatus = (message, kind) => {
       if (!status) {
@@ -318,6 +384,21 @@
         return;
       }
 
+      if (!isValidName(payload.name)) {
+        setStatus("Please enter a real name instead of initials or placeholder text.", "error");
+        return;
+      }
+
+      if (!isValidPhone(payload.phone)) {
+        setStatus("Please enter a valid phone number with 10 to 15 digits.", "error");
+        return;
+      }
+
+      if (payload.email && !emailPattern.test(payload.email)) {
+        setStatus("Please enter a valid email address or leave that field blank.", "error");
+        return;
+      }
+
       if (!hasConsent) {
         setStatus("Please confirm that the team can contact you about your enquiry.", "error");
         return;
@@ -343,15 +424,24 @@
           body,
         });
 
-        if ((site.inquiryMode || "cors") !== "no-cors" && !response.ok) {
-          throw new Error(`Submission failed with status ${response.status}`);
+        if ((site.inquiryMode || "cors") !== "no-cors") {
+          if (!response.ok) {
+            throw new Error(`Submission failed with status ${response.status}`);
+          }
+
+          const result = await response.json().catch(() => null);
+          if (result && result.ok === false) {
+            throw new Error(result.message || "Submission rejected.");
+          }
         }
 
         inquiryForm.reset();
         setStatus("Your enquiry has been submitted successfully.", "success");
       } catch (error) {
         setStatus(
-          "We couldn't submit the enquiry right now. Please check the connected endpoint and try again.",
+          error && error.message
+            ? error.message
+            : "We couldn't submit the enquiry right now. Please check the connected endpoint and try again.",
           "error",
         );
       }
