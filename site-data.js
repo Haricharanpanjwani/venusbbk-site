@@ -6,7 +6,7 @@ window.VENUS_SITE = {
   phoneDisplay: "+91 9664345780",
   phoneHref: "tel:+919664345780",
   whatsappHref:
-    "https://wa.me/910000000000?text=Hello%2C%20I%20would%20like%20to%20plan%20an%20event%20at%20Venus%20Club%20%26%20Banquet%20Hall.",
+    "https://wa.me/919664345780?text=Hello%2C%20I%20would%20like%20to%20plan%20an%20event%20at%20Venus%20Club%20%26%20Banquet%20Hall.",
   whatsappLabel: "WhatsApp Us",
   addressLine1: "Full venue address to be updated",
   addressLine2: "Barabanki, Uttar Pradesh",
