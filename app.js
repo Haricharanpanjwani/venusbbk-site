@@ -62,7 +62,7 @@
         kicker: "Main Celebration Hall",
         title: "Explore the central event space before guests even arrive",
         text:
-          "See the room scale, stage anchor, and how the main hall can support ceremonies, receptions, or larger hosted functions.",
+          "See the room scale, stage anchor, and how the banquet hall can support ceremonies, receptions, and larger hosted functions for up to 1,000 guests.",
       },
       garden: {
         image: "venue-garden.jpeg",
@@ -70,7 +70,7 @@
         kicker: "Evening Garden Ambience",
         title: "Move outdoors for the glow, atmosphere, and photo-friendly moments",
         text:
-          "Switch into the garden mood to preview how outdoor lighting and evening styling can give the venue a more memorable identity.",
+          "Switch into the lawn and garden mood to preview how outdoor lighting and evening styling can give the venue a more memorable identity.",
       },
     };
 

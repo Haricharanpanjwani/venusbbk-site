@@ -13,9 +13,9 @@ window.VENUS_SITE = {
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=Barabanki+Lucknow+Road",
   email: "bookings@venusbbk.com",
-  guestCapacity: "150-800 guests",
+  guestCapacity: "Up to 1,000 guests",
   heroBlurb:
-    "A warm, spacious venue for weddings, receptions, birthdays, corporate gatherings, and family celebrations.",
+    "A warm, spacious venue with 10 rooms, 1 banquet hall, and 1 lawn or garden area for weddings, receptions, birthdays, and large hosted celebrations.",
   metaDescription:
-    "Venus Club & Banquet Hall is a venue for weddings, receptions, birthdays, and events in the Barabanki-Lucknow area. View spaces, explore event options, and check availability.",
+    "Venus Club & Banquet Hall offers 10 rooms, 1 banquet hall, 1 lawn or garden event space, and capacity for up to 1,000 guests in the Barabanki-Lucknow area.",
 };
