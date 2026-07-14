@@ -104,18 +104,37 @@
             aria-describedby="launch-popup-message"
           >
             <button class="launch-popup__close" type="button" aria-label="Close launch announcement" data-launch-close>&times;</button>
-            <div class="launch-popup__eyebrow">${launchAnnouncement.label || "Launching soon"}</div>
-            <h2 id="launch-popup-title">${launchAnnouncement.title || `Venus Club opens on ${formattedLaunchDate}`}</h2>
-            <p id="launch-popup-message">${launchAnnouncement.message || ""}</p>
-            <div class="launch-popup__date">
-              <span>Opening date</span>
-              <strong>${formattedLaunchDate}</strong>
+            <div class="launch-popup__content">
+              <div class="launch-popup__eyebrow">${launchAnnouncement.label || "Launching soon"}</div>
+              <h2 id="launch-popup-title">${launchAnnouncement.title || `Venus Club opens on ${formattedLaunchDate}`}</h2>
+              <p id="launch-popup-message">${launchAnnouncement.message || ""}</p>
+              <div class="launch-popup__meta">
+                <div class="launch-popup__date">
+                  <span>Opening date</span>
+                  <strong>${formattedLaunchDate}</strong>
+                </div>
+                <div class="launch-popup__date">
+                  <span>Now accepting</span>
+                  <strong>${launchAnnouncement.note || "Early venue enquiries"}</strong>
+                </div>
+              </div>
+              <div class="launch-popup__actions">
+                <a class="button" href="${primaryHref}">${launchAnnouncement.primaryLabel || "Plan Your Event"}</a>
+                <button class="launch-popup__secondary" type="button" data-launch-close>
+                  ${launchAnnouncement.secondaryLabel || "Continue to site"}
+                </button>
+              </div>
             </div>
-            <div class="launch-popup__actions">
-              <a class="button" href="${primaryHref}">${launchAnnouncement.primaryLabel || "Plan Your Event"}</a>
-              <button class="launch-popup__secondary" type="button" data-launch-close>
-                ${launchAnnouncement.secondaryLabel || "Continue to site"}
-              </button>
+            <div class="launch-popup__visual">
+              <img
+                src="${launchAnnouncement.image || "venue-garden.jpeg"}"
+                alt="${launchAnnouncement.imageAlt || "Venus Club venue ambience"}"
+                loading="eager"
+              />
+              <div class="launch-popup__visual-overlay">
+                <span>${site.businessName || "Venus Club & Banquet Hall"}</span>
+                <strong>${launchAnnouncement.locationLabel || site.area || ""}</strong>
+              </div>
             </div>
           </section>
         `;
