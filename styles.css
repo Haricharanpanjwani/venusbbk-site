@@ -185,11 +185,17 @@ button {
     linear-gradient(180deg, rgba(248, 245, 240, 0.92), rgba(243, 238, 230, 0.92));
 }
 
+.launch-banner__marquee {
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  animation: launchBannerMarquee 22s linear infinite;
+}
+
 .launch-banner__track {
   display: flex;
   align-items: center;
   gap: 32px;
-  width: max-content;
   min-height: 34px;
   padding-left: 24px;
   padding-right: 24px;
@@ -199,7 +205,7 @@ button {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   white-space: nowrap;
-  animation: launchBannerMarquee 22s linear infinite;
+  flex: 0 0 auto;
 }
 
 .launch-banner__track span::after {
@@ -1769,6 +1775,10 @@ li {
     flex-direction: column;
   }
 
+  .launch-banner__marquee {
+    animation-duration: 20s;
+  }
+
   .launch-banner__track {
     gap: 24px;
     font-size: 0.71rem;
@@ -1966,7 +1976,7 @@ li {
     scroll-behavior: auto;
   }
 
-  .launch-banner__track {
+  .launch-banner__marquee {
     animation: none;
   }
 

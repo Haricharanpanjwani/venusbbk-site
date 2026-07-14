@@ -37,7 +37,7 @@
     if (!site.launchBannerText) {
       return;
     }
-    track.innerHTML = Array.from({ length: 6 }, () => {
+    track.innerHTML = Array.from({ length: 8 }, () => {
       return `<span>${site.launchBannerText}</span>`;
     }).join("");
   });
