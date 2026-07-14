@@ -1484,14 +1484,22 @@ li {
 
 .launch-popup__close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
   padding: 0;
   border: 0;
-  background: transparent;
-  color: rgba(65, 52, 44, 0.68);
-  font-size: 1.25rem;
+  border-radius: 999px;
+  background: rgba(16, 12, 10, 0.62);
+  color: rgba(255, 247, 235, 0.96);
+  font-size: 1.1rem;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 22px rgba(18, 14, 12, 0.18);
   z-index: 4;
 }
 
@@ -1614,7 +1622,7 @@ li {
 
 .launch-popup__secondary:hover,
 .launch-popup__close:hover {
-  opacity: 0.6;
+  opacity: 0.82;
 }
 
 .footer {
