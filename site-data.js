@@ -14,7 +14,7 @@ window.VENUS_SITE = {
     "https://www.google.com/maps/search/?api=1&query=Venus+Club+Barabanki",
   email: "bookings@venusbbk.com",
   guestCapacity: "Capacity details available on enquiry",
-  roomCount: "Approximately 25 guest rooms",
+  roomCount: "10 guest rooms",
   heroBlurb:
     "An elegant destination in Barabanki for weddings, celebrations, corporate gatherings, and memorable stays.",
   metaDescription:
