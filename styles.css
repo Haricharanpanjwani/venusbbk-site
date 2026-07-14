@@ -179,10 +179,11 @@ button {
 .launch-banner {
   position: relative;
   overflow: hidden;
-  min-height: 34px;
-  border-bottom: 1px solid rgba(140, 122, 98, 0.08);
+  min-height: 46px;
+  border-bottom: 1px solid rgba(98, 70, 48, 0.14);
   background:
-    linear-gradient(180deg, rgba(248, 245, 240, 0.92), rgba(243, 238, 230, 0.92));
+    linear-gradient(90deg, rgba(109, 42, 49, 0.96), rgba(158, 125, 72, 0.94));
+  box-shadow: inset 0 1px 0 rgba(255, 241, 219, 0.12);
 }
 
 .launch-banner__marquee {
@@ -196,22 +197,23 @@ button {
   display: flex;
   align-items: center;
   gap: 32px;
-  min-height: 34px;
-  padding-left: 24px;
-  padding-right: 24px;
-  color: rgba(77, 59, 46, 0.88);
-  font-size: 0.76rem;
+  min-height: 46px;
+  padding-left: 26px;
+  padding-right: 26px;
+  color: rgba(255, 245, 229, 0.96);
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   white-space: nowrap;
   flex: 0 0 auto;
+  text-shadow: 0 1px 0 rgba(34, 20, 16, 0.16);
 }
 
 .launch-banner__track span::after {
   content: "•";
   margin-left: 32px;
-  color: rgba(168, 134, 82, 0.72);
+  color: rgba(248, 226, 186, 0.8);
 }
 
 @keyframes launchBannerMarquee {
