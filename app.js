@@ -91,6 +91,15 @@
           window.location.pathname.endsWith("contact.html");
         const primaryHref =
           launchAnnouncement.primaryHref || (pageIsContact ? "#schedule-visit" : "contact.html#schedule-visit");
+        const titleParts = String(
+          launchAnnouncement.title || `Venus Club\nOpening ${formattedLaunchDate}`,
+        )
+          .split("\n")
+          .filter(Boolean);
+        const messageParts = String(launchAnnouncement.message || "")
+          .split("\n")
+          .map((value) => value.trim())
+          .filter(Boolean);
         const popup = document.createElement("div");
         popup.className = "launch-popup";
         popup.setAttribute("data-launch-popup", "");
@@ -102,74 +111,110 @@
             aria-modal="true"
             aria-labelledby="launch-popup-title"
             aria-describedby="launch-popup-message"
+            tabindex="-1"
           >
-            <button class="launch-popup__close" type="button" aria-label="Close launch announcement" data-launch-close>&times;</button>
-            <div class="launch-popup__content">
-              <div class="launch-popup__eyebrow">${launchAnnouncement.label || "Launching soon"}</div>
-              <h2 id="launch-popup-title">${launchAnnouncement.title || `Venus Club opens on ${formattedLaunchDate}`}</h2>
-              <p id="launch-popup-message">${launchAnnouncement.message || ""}</p>
-              <div class="launch-popup__meta">
-                <div class="launch-popup__date">
-                  <span>Opening date</span>
-                  <strong>${formattedLaunchDate}</strong>
-                </div>
-                <div class="launch-popup__date">
-                  <span>Now accepting</span>
-                  <strong>${launchAnnouncement.note || "Early venue enquiries"}</strong>
-                </div>
-              </div>
-              <div class="launch-popup__actions">
-                <a class="button" href="${primaryHref}">${launchAnnouncement.primaryLabel || "Plan Your Event"}</a>
-                <button class="launch-popup__secondary" type="button" data-launch-close>
-                  ${launchAnnouncement.secondaryLabel || "Continue to site"}
-                </button>
-              </div>
-            </div>
-            <div class="launch-popup__visual">
+            <button class="launch-popup__close" type="button" aria-label="Close launch announcement" data-launch-close>×</button>
+            <div class="launch-popup__media" aria-hidden="true">
               <img
-                src="${launchAnnouncement.image || "venue-garden.jpeg"}"
-                alt="${launchAnnouncement.imageAlt || "Venus Club venue ambience"}"
+                src="${launchAnnouncement.image || "venue-hall.jpeg"}"
+                alt=""
                 loading="eager"
               />
-              <div class="launch-popup__visual-overlay">
-                <span>${site.businessName || "Venus Club & Banquet Hall"}</span>
-                <strong>${launchAnnouncement.locationLabel || site.area || ""}</strong>
+              <div class="launch-popup__veil"></div>
+            </div>
+            <div class="launch-popup__content">
+              <div class="launch-popup__monogram">${launchAnnouncement.monogram || "VC"}</div>
+              <div class="launch-popup__divider"></div>
+              <h2 id="launch-popup-title">
+                ${titleParts.map((part, index) => `<span${index === 0 ? ' class="launch-popup__title-primary"' : ""}>${part}</span>`).join("")}
+              </h2>
+              <div id="launch-popup-message" class="launch-popup__body">
+                ${messageParts.map((part) => `<p>${part}</p>`).join("")}
+              </div>
+              <p class="launch-popup__opening">${launchAnnouncement.openingLabel || `Opening ${formattedLaunchDate}`}</p>
+              <div class="launch-popup__actions">
+                <a class="launch-popup__primary" href="${primaryHref}">${launchAnnouncement.primaryLabel || "Plan Your Event"}</a>
+                <button class="launch-popup__secondary" type="button" data-launch-close>
+                  ${launchAnnouncement.secondaryLabel || "Continue to Website"}
+                </button>
               </div>
             </div>
           </section>
         `;
 
+        const dialog = popup.querySelector(".launch-popup__dialog");
+        const focusableSelector =
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+        const focusableElements = () =>
+          Array.from(popup.querySelectorAll(focusableSelector)).filter((node) => !node.hasAttribute("hidden"));
+        const previousActiveElement = document.activeElement;
+        let isClosing = false;
+        let handleKeydown;
+
         const closePopup = () => {
-          popup.remove();
+          if (isClosing) {
+            return;
+          }
+          isClosing = true;
+          popup.classList.add("is-closing");
           document.body.classList.remove("has-launch-popup");
+          document.removeEventListener("keydown", handleKeydown);
           try {
             window.sessionStorage.setItem(sessionKey, "dismissed");
           } catch (error) {
             // Ignore storage failures and still close the popup.
           }
+          window.setTimeout(() => {
+            popup.remove();
+            if (previousActiveElement && typeof previousActiveElement.focus === "function") {
+              previousActiveElement.focus();
+            }
+          }, 350);
         };
 
         popup.querySelectorAll("[data-launch-close]").forEach((node) => {
           node.addEventListener("click", closePopup);
         });
 
-        popup.addEventListener("click", (event) => {
-          if (event.target === popup) {
-            closePopup();
-          }
-        });
-
-        document.addEventListener("keydown", (event) => {
+        handleKeydown = (event) => {
           if (!document.body.classList.contains("has-launch-popup")) {
             return;
           }
           if (event.key === "Escape") {
             closePopup();
+            return;
           }
-        });
+          if (event.key === "Tab") {
+            const items = focusableElements();
+            if (!items.length) {
+              event.preventDefault();
+              if (dialog) {
+                dialog.focus();
+              }
+              return;
+            }
+            const first = items[0];
+            const last = items[items.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first.focus();
+            }
+          }
+        };
+
+        document.addEventListener("keydown", handleKeydown);
 
         document.body.appendChild(popup);
         document.body.classList.add("has-launch-popup");
+        const initialFocusTarget = focusableElements()[0];
+        if (initialFocusTarget && typeof initialFocusTarget.focus === "function") {
+          initialFocusTarget.focus();
+        } else if (dialog) {
+          dialog.focus();
+        }
       }
     }
   }

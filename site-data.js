@@ -27,17 +27,16 @@ window.VENUS_SITE = {
   launchAnnouncement: {
     enabled: true,
     date: "2026-07-29",
-    label: "Launching soon",
-    title: "A new address for celebrations opens on 29 July 2026",
+    title: "Venus Club\nOpening Summer 2026",
     message:
-      "Venus Club & Banquet Hall is preparing to welcome its first celebrations. Enquiries for weddings, private events, guest stays, and venue visits are already open.",
+      "A new destination for extraordinary weddings, celebrations and private stays.\n\nWe are carefully preparing every detail and are now welcoming early enquiries and private venue appointments.",
     primaryLabel: "Plan Your Event",
     primaryHref: "contact.html#schedule-visit",
-    secondaryLabel: "Continue to site",
-    image: "venue-garden.jpeg",
-    imageAlt: "Evening outdoor venue ambience at Venus Club",
-    locationLabel: "Barabanki, Uttar Pradesh",
-    note: "Now accepting early enquiries for weddings, receptions, and venue walkthroughs.",
+    secondaryLabel: "Continue to Website",
+    image: "venue-hall.jpeg",
+    imageAlt: "Interior ambience at Venus Club",
+    monogram: "VC",
+    openingLabel: "Opening 29 July 2026",
   },
   galleryItems: [
     {
