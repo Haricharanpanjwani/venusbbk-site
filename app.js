@@ -133,7 +133,7 @@
               </div>
               <p class="launch-popup__opening">${launchAnnouncement.openingLabel || `Opening ${formattedLaunchDate}`}</p>
               <div class="launch-popup__actions">
-                <a class="launch-popup__primary" href="${primaryHref}">${launchAnnouncement.primaryLabel || "Plan Your Event"}</a>
+                <a class="launch-popup__primary" href="${primaryHref}" data-launch-primary>${launchAnnouncement.primaryLabel || "Plan Your Event"}</a>
                 <button class="launch-popup__secondary" type="button" data-launch-close>
                   ${launchAnnouncement.secondaryLabel || "Continue to Website"}
                 </button>
@@ -175,6 +175,13 @@
         popup.querySelectorAll("[data-launch-close]").forEach((node) => {
           node.addEventListener("click", closePopup);
         });
+
+        const primaryAction = popup.querySelector("[data-launch-primary]");
+        if (primaryAction) {
+          primaryAction.addEventListener("click", () => {
+            closePopup();
+          });
+        }
 
         handleKeydown = (event) => {
           if (!document.body.classList.contains("has-launch-popup")) {
