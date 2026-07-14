@@ -33,6 +33,15 @@
     node.setAttribute("href", site.email ? `mailto:${site.email}` : "#");
   });
 
+  document.querySelectorAll(".launch-banner__track").forEach((track) => {
+    if (!site.launchBannerText) {
+      return;
+    }
+    track.innerHTML = Array.from({ length: 6 }, () => {
+      return `<span>${site.launchBannerText}</span>`;
+    }).join("");
+  });
+
   const year = document.getElementById("year");
   if (year) {
     year.textContent = new Date().getFullYear();

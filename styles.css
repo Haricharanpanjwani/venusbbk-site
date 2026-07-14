@@ -188,22 +188,23 @@ button {
 .launch-banner__track {
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 32px;
   width: max-content;
   min-height: 34px;
   padding-left: 24px;
+  padding-right: 24px;
   color: rgba(77, 59, 46, 0.88);
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   white-space: nowrap;
-  animation: launchBannerMarquee 18s linear infinite;
+  animation: launchBannerMarquee 22s linear infinite;
 }
 
 .launch-banner__track span::after {
   content: "•";
-  margin-left: 48px;
+  margin-left: 32px;
   color: rgba(168, 134, 82, 0.72);
 }
 
@@ -1761,13 +1762,13 @@ li {
   }
 
   .launch-banner__track {
-    gap: 32px;
+    gap: 24px;
     font-size: 0.71rem;
     letter-spacing: 0.14em;
   }
 
   .launch-banner__track span::after {
-    margin-left: 32px;
+    margin-left: 24px;
   }
 }
 
