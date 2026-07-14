@@ -58,6 +58,103 @@
     });
   }
 
+  const launchAnnouncement = site.launchAnnouncement || null;
+  if (launchAnnouncement && launchAnnouncement.enabled) {
+    const launchDate = new Date(`${launchAnnouncement.date}T00:00:00`);
+    const isValidLaunchDate = !Number.isNaN(launchDate.getTime());
+    const launchWindowEnd = isValidLaunchDate
+      ? new Date(launchDate.getFullYear(), launchDate.getMonth(), launchDate.getDate() + 1)
+      : null;
+    const shouldShowLaunchPopup =
+      isValidLaunchDate &&
+      launchWindowEnd &&
+      new Date() < launchWindowEnd &&
+      typeof document !== "undefined";
+
+    if (shouldShowLaunchPopup) {
+      const sessionKey = `venus-launch-popup-${launchAnnouncement.date}`;
+      const hasSeenPopup = (() => {
+        try {
+          return window.sessionStorage.getItem(sessionKey) === "dismissed";
+        } catch (error) {
+          return false;
+        }
+      })();
+
+      if (!hasSeenPopup) {
+        const formattedLaunchDate = new Intl.DateTimeFormat("en-US", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }).format(launchDate);
+        const pageIsContact = window.location.pathname.endsWith("/contact.html") ||
+          window.location.pathname.endsWith("contact.html");
+        const primaryHref =
+          launchAnnouncement.primaryHref || (pageIsContact ? "#schedule-visit" : "contact.html#schedule-visit");
+        const popup = document.createElement("div");
+        popup.className = "launch-popup";
+        popup.setAttribute("data-launch-popup", "");
+        popup.innerHTML = `
+          <div class="launch-popup__scrim" data-launch-close></div>
+          <section
+            class="launch-popup__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="launch-popup-title"
+            aria-describedby="launch-popup-message"
+          >
+            <button class="launch-popup__close" type="button" aria-label="Close launch announcement" data-launch-close>&times;</button>
+            <div class="launch-popup__eyebrow">${launchAnnouncement.label || "Launching soon"}</div>
+            <h2 id="launch-popup-title">${launchAnnouncement.title || `Venus Club opens on ${formattedLaunchDate}`}</h2>
+            <p id="launch-popup-message">${launchAnnouncement.message || ""}</p>
+            <div class="launch-popup__date">
+              <span>Opening date</span>
+              <strong>${formattedLaunchDate}</strong>
+            </div>
+            <div class="launch-popup__actions">
+              <a class="button" href="${primaryHref}">${launchAnnouncement.primaryLabel || "Plan Your Event"}</a>
+              <button class="launch-popup__secondary" type="button" data-launch-close>
+                ${launchAnnouncement.secondaryLabel || "Continue to site"}
+              </button>
+            </div>
+          </section>
+        `;
+
+        const closePopup = () => {
+          popup.remove();
+          document.body.classList.remove("has-launch-popup");
+          try {
+            window.sessionStorage.setItem(sessionKey, "dismissed");
+          } catch (error) {
+            // Ignore storage failures and still close the popup.
+          }
+        };
+
+        popup.querySelectorAll("[data-launch-close]").forEach((node) => {
+          node.addEventListener("click", closePopup);
+        });
+
+        popup.addEventListener("click", (event) => {
+          if (event.target === popup) {
+            closePopup();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (!document.body.classList.contains("has-launch-popup")) {
+            return;
+          }
+          if (event.key === "Escape") {
+            closePopup();
+          }
+        });
+
+        document.body.appendChild(popup);
+        document.body.classList.add("has-launch-popup");
+      }
+    }
+  }
+
   const tour = document.querySelector("[data-tour]");
   if (tour) {
     const image = tour.querySelector("[data-tour-image]");

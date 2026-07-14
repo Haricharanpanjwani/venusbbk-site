@@ -24,6 +24,17 @@ window.VENUS_SITE = {
     "https://script.google.com/macros/s/AKfycbyk7WsEajmK8mro2jc866nGdELNdnj3Mc1gRtnJs_iujGxtAPbK5tDbsWujiz0Df351oQ/exec",
   inquiryMethod: "POST",
   inquiryMode: "no-cors",
+  launchAnnouncement: {
+    enabled: true,
+    date: "2026-07-29",
+    label: "Launching soon",
+    title: "Venus Club opens on 29 July 2026",
+    message:
+      "We are preparing the venue for our opening. Enquiries for weddings, celebrations, stays, and venue visits are already welcome.",
+    primaryLabel: "Plan Your Event",
+    primaryHref: "contact.html#schedule-visit",
+    secondaryLabel: "Continue to site",
+  },
   galleryItems: [
     {
       title: "Banquet Hall Perspective",
