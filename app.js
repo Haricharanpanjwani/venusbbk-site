@@ -17,6 +17,7 @@
   setText("[data-site-short]", site.shortName || "");
   setText("[data-site-tagline]", site.tagline || "");
   setText("[data-site-area]", site.area || "");
+  setText("[data-site-launch-banner]", site.launchBannerText || "");
   setText("[data-site-phone]", site.phoneDisplay || "");
   setText("[data-site-address-line1]", site.addressLine1 || "");
   setText("[data-site-address-line2]", site.addressLine2 || "");

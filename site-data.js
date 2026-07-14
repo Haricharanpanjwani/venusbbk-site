@@ -19,6 +19,7 @@ window.VENUS_SITE = {
     "An elegant destination in Barabanki for weddings, celebrations, corporate gatherings, and memorable stays.",
   metaDescription:
     "Venus Club & Banquet Hall is a premium event venue in Barabanki near Lucknow with a banquet hall, outdoor celebration space, guest accommodation, and enquiry-first planning.",
+  launchBannerText: "Launching on July 29, 2026",
   canonicalBase: "https://venusbbk.com",
   inquiryEndpoint:
     "https://script.google.com/macros/s/AKfycbyk7WsEajmK8mro2jc866nGdELNdnj3Mc1gRtnJs_iujGxtAPbK5tDbsWujiz0Df351oQ/exec",
