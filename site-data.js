@@ -2,7 +2,7 @@ window.VENUS_SITE = {
   businessName: "Venus Club & Banquet Hall",
   shortName: "Venus Club",
   tagline: "One Destination for Every Celebration.",
-  area: "Dharsania, Gadia, Uttar Pradesh",
+  area: "Barabanki, Lucknow, Uttar Pradesh",
   businessHoursDisplay: "9:00 AM to 9:00 PM",
   phoneDisplay: "+91 9664345780",
   phoneHref: "tel:+919664345780",
