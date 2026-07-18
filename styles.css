@@ -1174,10 +1174,22 @@ li {
 
 .story-card {
   background:
-    linear-gradient(180deg, rgba(255, 250, 242, 0.1), rgba(255, 250, 242, 0.04)),
-    rgba(27, 23, 20, 0.9);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-lg);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(249, 243, 234, 0.96));
+  border: 1px solid rgba(169, 142, 106, 0.16);
+  box-shadow: 0 16px 40px rgba(107, 84, 58, 0.1);
+}
+
+.story-card .eyebrow {
+  background: linear-gradient(180deg, rgba(244, 236, 223, 0.98), rgba(235, 225, 209, 0.94));
+  color: #8a3640;
+}
+
+.story-card h3 {
+  color: #2d241d;
+}
+
+.story-card p {
+  color: rgba(75, 61, 47, 0.82);
 }
 
 .story-card img {
