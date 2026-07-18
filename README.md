@@ -14,6 +14,9 @@ Update these values in [site-data.js](/Volumes/work/venusclub/site-data.js):
 - `mapsHref`
 - `email`
 - `guestCapacity`
+- `businessHoursDisplay`
+- `serviceAreas`
+- `seoKeywords`
 
 ## Local preview
 

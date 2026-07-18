@@ -3,6 +3,7 @@ window.VENUS_SITE = {
   shortName: "Venus Club",
   tagline: "One Destination for Every Celebration.",
   area: "Dharsania, Gadia, Uttar Pradesh",
+  businessHoursDisplay: "9:00 AM to 9:00 PM",
   phoneDisplay: "+91 9664345780",
   phoneHref: "tel:+919664345780",
   whatsappHref:
@@ -15,6 +16,22 @@ window.VENUS_SITE = {
   email: "bookings@venusbbk.com",
   guestCapacity: "Capacity details available on enquiry",
   roomCount: "10 guest rooms",
+  serviceAreas: [
+    "Lucknow",
+    "Barabanki",
+    "Dharsania",
+    "Gadia",
+    "Banki",
+    "Safedabad",
+    "Chinhat",
+    "Dewa",
+    "Zaidpur",
+    "Nawabganj",
+    "Aseni",
+    "Madhopur"
+  ],
+  seoKeywords:
+    "Venus Club, Venus Banquet, Venus Outdoor Lawn, Club, Outdoor, Event, Business Event, Venue, Marriage Hall, Banquet Hall, Wedding Venue, Outdoor Lawn, Corporate Event Venue, Barabanki, Lucknow",
   heroBlurb:
     "An elegant destination in Barabanki for weddings, celebrations, corporate gatherings, and memorable stays.",
   metaDescription:
