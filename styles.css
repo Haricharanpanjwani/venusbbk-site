@@ -1755,6 +1755,26 @@ li {
   stroke: none;
 }
 
+.footer .link-with-icon {
+  gap: 10px;
+  line-height: 1.2;
+}
+
+.footer .link-with-icon span:last-child {
+  display: inline-block;
+}
+
+.footer .link-icon {
+  width: 18px;
+  height: 18px;
+  color: #e7d5bb;
+}
+
+.footer .link-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
 .sticky-actions-wrap {
   position: fixed;
   inset: auto 0 0;
