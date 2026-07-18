@@ -9,6 +9,7 @@ Update these values in [site-data.js](/Volumes/work/venusclub/site-data.js):
 - `phoneDisplay`
 - `phoneHref`
 - `whatsappHref`
+- `instagramHref`
 - `addressLine1`
 - `addressLine2`
 - `mapsHref`

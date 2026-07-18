@@ -9,6 +9,7 @@ window.VENUS_SITE = {
   whatsappHref:
     "https://wa.me/919664345780?text=Hello%2C%20I%20would%20like%20to%20plan%20an%20event%20at%20Venus%20Club%20%26%20Banquet%20Hall.",
   whatsappLabel: "WhatsApp Us",
+  instagramHref: "https://www.instagram.com/venusbbk",
   addressLine1: "Lucknow - Colonelganj - Gonda Rd, Dharsania, Gadia",
   addressLine2: "Uttar Pradesh 225003, India",
   mapsHref:

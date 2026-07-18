@@ -28,6 +28,7 @@
 
   setHref("[data-phone-link]", site.phoneHref || "#");
   setHref("[data-whatsapp-link]", site.whatsappHref || "#");
+  setHref("[data-instagram-link]", site.instagramHref || "#");
   setHref("[data-map-link]", site.mapsHref || "#");
   document.querySelectorAll("[data-email-link]").forEach((node) => {
     node.setAttribute("href", site.email ? `mailto:${site.email}` : "#");
