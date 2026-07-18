@@ -219,13 +219,30 @@
             <article class="contact-card">
               <span class="eyebrow">Direct contact</span>
               <h3>Venue details</h3>
-              <p><strong>Phone:</strong> <a data-phone-link href="#"><span data-site-phone></span></a></p>
-              <p><strong>Email:</strong> <a data-email-link href="#"><span data-site-email></span></a></p>
-              <p><strong>Address:</strong> <span data-site-address-line1></span>, <span data-site-address-line2></span></p>
-              <p><strong>Hours:</strong> 9:00 AM to 9:00 PM</p>
-              <p><strong>Map:</strong> <a class="link-with-icon" data-map-link href="#" target="_blank" rel="noreferrer"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 21s6-5.58 6-11a6 6 0 1 0-12 0c0 5.42 6 11 6 11Z"></path><circle cx="12" cy="10" r="2.5" class="link-icon__fill"></circle></svg></span><span>Open directions</span></a></p>
+              <div class="contact-detail-list">
+                <div class="contact-detail">
+                  <span class="contact-detail__label">Phone</span>
+                  <a class="contact-detail__value" data-phone-link href="#"><span data-site-phone></span></a>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-detail__label">Email</span>
+                  <a class="contact-detail__value" data-email-link href="#"><span data-site-email></span></a>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-detail__label">Address</span>
+                  <p class="contact-detail__value"><span data-site-address-line1></span>, <span data-site-address-line2></span></p>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-detail__label">Hours</span>
+                  <p class="contact-detail__value">9:00 AM to 9:00 PM</p>
+                </div>
+              </div>
+              <a class="contact-direction-link" data-map-link href="#" target="_blank" rel="noreferrer">
+                <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 21s6-5.58 6-11a6 6 0 1 0-12 0c0 5.42 6 11 6 11Z"></path><circle cx="12" cy="10" r="2.5" class="link-icon__fill"></circle></svg></span>
+                <span>Open directions in Google Maps</span>
+              </a>
               <p class="note">
-                Open daily for wedding, celebration, business-event, and venue enquiries. Call and WhatsApp remain the fastest contact paths.
+                Open daily for wedding, celebration, business-event, and venue enquiries.
               </p>
             </article>
             <article class="form-shell">
