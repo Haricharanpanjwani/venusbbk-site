@@ -33,14 +33,59 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ContactPage",
-        "name": "Contact Venus Club | Wedding Venue Enquiry in Barabanki",
-        "url": "https://venusbbk.com/contact.html",
-        "description": "Contact and enquiry page for Venus Club & Banquet Hall in Barabanki.",
-        "isPartOf": {
-          "@type": "WebSite",
-          "url": "https://venusbbk.com/"
-        }
+        "@graph": [
+          {
+            "@type": "ContactPage",
+            "name": "Contact Venus Club | Wedding Venue Enquiry in Barabanki",
+            "url": "https://venusbbk.com/contact.html",
+            "description": "Contact and enquiry page for Venus Club & Banquet Hall in Barabanki.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "url": "https://venusbbk.com/"
+            },
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://venusbbk.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact",
+                  "item": "https://venusbbk.com/contact.html"
+                }
+              ]
+            }
+          },
+          {
+            "@type": "EventVenue",
+            "name": "Venus Club & Banquet Hall",
+            "url": "https://venusbbk.com/",
+            "telephone": "+91 9664345780",
+            "email": "bookings@venusbbk.com",
+            "hasMap": "https://www.google.com/maps/place/Venus+Club+and+Banquet/data=!4m2!3m1!1s0x0:0x545008718fb33479?sa=X&ved=1t:2428&ictx=111",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Lucknow - Colonelganj - Gonda Rd, Dharsania, Gadia",
+              "addressLocality": "Gadia",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "225003",
+              "addressCountry": "IN"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "telephone": "+91 9664345780",
+              "email": "bookings@venusbbk.com",
+              "areaServed": "IN",
+              "availableLanguage": "en"
+            }
+          }
+        ]
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
