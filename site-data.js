@@ -64,7 +64,7 @@ window.VENUS_SITE = {
     {
       title: "Garden Arrival Impression",
       category: "outdoor",
-      image: "outdoor_lawn.png",
+      image: "venue-garden.jpeg",
       alt: "Garden-side visual atmosphere at Venus Club for receptions and gatherings",
       caption: "Ideal for arrival moments, outdoor receptions, and more atmospheric event styling.",
     },
@@ -78,7 +78,7 @@ window.VENUS_SITE = {
     {
       title: "Venue Ambience",
       category: "details",
-      image: "outdoor_lawn.png",
+      image: "venue-garden.jpeg",
       alt: "Exterior ambience at Venus Club near Barabanki for event hosting",
       caption: "Current venue imagery will expand as more professionally shot albums are added.",
     },
