@@ -376,6 +376,11 @@ h3,
   padding: 42px 0 28px;
 }
 
+.hero {
+  align-items: start;
+  padding-top: 18px;
+}
+
 .hero-card,
 .panel,
 .glass-card,
@@ -405,6 +410,11 @@ h3,
   background: transparent;
   border: 0;
   box-shadow: none;
+}
+
+.hero-card {
+  justify-content: flex-start;
+  padding-top: 8px;
 }
 
 .eyebrow {
