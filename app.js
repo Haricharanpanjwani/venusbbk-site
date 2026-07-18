@@ -255,7 +255,7 @@
           "Use the walkthrough to understand how the indoor hall sets the tone for ceremonies, receptions, and more formal hosted events.",
       },
       garden: {
-        image: "venue-garden.jpeg",
+        image: "outdoor_lawn.png",
         alt: "Outdoor event space at Venus Club with evening ambience",
         kicker: "The Outdoor Celebration Space",
         title: "Move outdoors for the atmosphere, lighting, and open-air flexibility",

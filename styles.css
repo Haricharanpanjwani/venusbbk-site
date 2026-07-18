@@ -517,7 +517,7 @@ li {
   box-shadow: var(--shadow-xl);
   background:
     linear-gradient(180deg, rgba(13, 11, 10, 0.08), rgba(13, 11, 10, 0.7)),
-    url("venue-garden.jpeg") center/cover;
+    url("outdoor_lawn.png") center/cover;
 }
 
 .page-hero__visual {
@@ -537,7 +537,7 @@ li {
 .hero-visual--gallery {
   background:
     linear-gradient(180deg, rgba(13, 11, 10, 0.08), rgba(13, 11, 10, 0.72)),
-    url("venue-garden.jpeg") center/cover;
+    url("outdoor_lawn.png") center/cover;
 }
 
 .hero-overlay {
