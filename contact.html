@@ -134,10 +134,21 @@
       <header class="topbar">
         <div class="topbar-meta">
           <div class="topbar-meta__inner">
-            <span data-site-area></span>
-            <div>
-              <span data-site-room-count></span>
-              <a data-phone-link href="#"><span data-site-phone></span></a>
+            <div class="meta-cluster">
+              <span class="meta-chip">
+                <span class="meta-chip__label">Serving</span>
+                <span data-site-area></span>
+              </span>
+            </div>
+            <div class="meta-cluster">
+              <span class="meta-chip">
+                <span class="meta-chip__label">Stay</span>
+                <span data-site-room-count></span>
+              </span>
+              <a class="meta-chip meta-chip--accent" data-phone-link href="#">
+                <span class="meta-chip__label">Call</span>
+                <span data-site-phone></span>
+              </a>
             </div>
           </div>
         </div>
