@@ -94,6 +94,13 @@ window.VENUS_SITE = {
       caption: "A setting designed to adapt across weddings, birthdays, anniversaries, and family functions.",
     },
     {
+      title: "Corporate Event Setting",
+      category: "social",
+      image: "corporate_event.png",
+      alt: "Corporate meeting and hosted event setup at Venus Club",
+      caption: "A more formal setup suited to meetings, hosted business events, and professional gatherings.",
+    },
+    {
       title: "Venue Ambience",
       category: "details",
       image: "venue-garden.jpeg",
