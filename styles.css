@@ -1724,6 +1724,37 @@ li {
   color: var(--text-soft);
 }
 
+.link-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  flex: 0 0 auto;
+}
+
+.link-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.link-icon__fill {
+  fill: currentColor;
+  stroke: none;
+}
+
 .sticky-actions-wrap {
   position: fixed;
   inset: auto 0 0;
