@@ -11,7 +11,7 @@ window.VENUS_SITE = {
   addressLine1: "Lucknow - Colonelganj - Gonda Rd, Dharsania, Gadia",
   addressLine2: "Uttar Pradesh 225003, India",
   mapsHref:
-    "https://www.google.com/maps/search/?api=1&query=Lucknow+-+Colonelganj+-+Gonda+Rd%2C+Dharsania%2C+Gadia%2C+Uttar+Pradesh+225003%2C+India",
+    "https://www.google.com/maps/place/Venus+Club+and+Banquet/data=!4m2!3m1!1s0x0:0x545008718fb33479?sa=X&ved=1t:2428&ictx=111",
   email: "bookings@venusbbk.com",
   guestCapacity: "Capacity details available on enquiry",
   roomCount: "10 guest rooms",
