@@ -256,9 +256,9 @@ button {
 }
 
 .topbar__inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
   padding: 16px 0;
 }
@@ -313,6 +313,7 @@ h3,
   display: flex;
   align-items: center;
   gap: 18px;
+  justify-self: center;
 }
 
 .nav a {
@@ -331,6 +332,7 @@ h3,
   display: flex;
   align-items: center;
   gap: 16px;
+  justify-self: end;
 }
 
 .text-link {
