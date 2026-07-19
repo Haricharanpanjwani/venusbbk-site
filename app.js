@@ -25,6 +25,7 @@
   setText("[data-site-hero]", site.heroBlurb || "");
   setText("[data-site-email]", site.email || "");
   setText("[data-site-room-count]", site.roomCount || "");
+  setText("[data-site-business-hours]", site.businessHoursDisplay || "");
 
   setHref("[data-phone-link]", site.phoneHref || "#");
   setHref("[data-whatsapp-link]", site.whatsappHref || "#");
@@ -34,11 +35,47 @@
     node.setAttribute("href", site.email ? `mailto:${site.email}` : "#");
   });
 
+  document.querySelectorAll("[data-venue-facts]").forEach((node) => {
+    const facts = Array.isArray(site.venueFacts) ? site.venueFacts : [];
+    node.innerHTML = facts
+      .map((fact) => {
+        return `
+          <div class="fact-inline">
+            <strong>${fact.title || ""}</strong>
+            <span>${fact.detail || ""}</span>
+          </div>
+        `;
+      })
+      .join("");
+  });
+
+  document.querySelectorAll("[data-event-type-select]").forEach((select) => {
+    const firstOption = select.querySelector("option[value='']");
+    const options = Array.isArray(site.eventTypes) ? site.eventTypes : [];
+
+    select.innerHTML = "";
+    if (firstOption) {
+      select.appendChild(firstOption);
+    } else {
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "Select event type";
+      select.appendChild(placeholder);
+    }
+
+    options.forEach((value) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = value;
+      select.appendChild(option);
+    });
+  });
+
   document.querySelectorAll(".launch-banner__track").forEach((track) => {
     if (!site.launchBannerText) {
       return;
     }
-    track.innerHTML = Array.from({ length: 8 }, () => {
+    track.innerHTML = Array.from({ length: 5 }, () => {
       return `<span>${site.launchBannerText}</span>`;
     }).join("");
   });
@@ -111,128 +148,129 @@
           .split("\n")
           .map((value) => value.trim())
           .filter(Boolean);
-        const popup = document.createElement("div");
-        popup.className = "launch-popup";
-        popup.setAttribute("data-launch-popup", "");
-        popup.innerHTML = `
-          <div class="launch-popup__scrim" data-launch-close></div>
-          <section
-            class="launch-popup__dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="launch-popup-title"
-            aria-describedby="launch-popup-message"
-            tabindex="-1"
-          >
-            <button class="launch-popup__close" type="button" aria-label="Close launch announcement" data-launch-close>×</button>
-            <div class="launch-popup__media" aria-hidden="true">
-              <img
-                src="${launchAnnouncement.image || "venue-hall.jpeg"}"
-                alt=""
-                loading="eager"
-              />
-              <div class="launch-popup__veil"></div>
-            </div>
-            <div class="launch-popup__content">
-              <div class="launch-popup__monogram">${launchAnnouncement.monogram || "VC"}</div>
-              <div class="launch-popup__divider"></div>
-              <h2 id="launch-popup-title">
-                ${titleParts.map((part, index) => `<span${index === 0 ? ' class="launch-popup__title-primary"' : ""}>${part}</span>`).join("")}
-              </h2>
-              <div id="launch-popup-message" class="launch-popup__body">
-                ${messageParts.map((part) => `<p>${part}</p>`).join("")}
+        const mountPopup = () => {
+          const popup = document.createElement("div");
+          popup.className = "launch-popup";
+          popup.setAttribute("data-launch-popup", "");
+          popup.innerHTML = `
+            <div class="launch-popup__scrim" data-launch-close></div>
+            <section
+              class="launch-popup__dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="launch-popup-title"
+              aria-describedby="launch-popup-message"
+              tabindex="-1"
+            >
+              <button class="launch-popup__close" type="button" aria-label="Close launch announcement" data-launch-close>×</button>
+              <div class="launch-popup__media" aria-hidden="true">
+                <img
+                  src="${launchAnnouncement.image || "venue-hall.jpeg"}"
+                  alt=""
+                  loading="eager"
+                />
+                <div class="launch-popup__veil"></div>
               </div>
-              <p class="launch-popup__opening">${launchAnnouncement.openingLabel || `Opening ${formattedLaunchDate}`}</p>
-              <div class="launch-popup__actions">
-                <a class="launch-popup__primary" href="${primaryHref}" data-launch-primary>${launchAnnouncement.primaryLabel || "Plan Your Event"}</a>
-                <button class="launch-popup__secondary" type="button" data-launch-close>
-                  ${launchAnnouncement.secondaryLabel || "Continue to Website"}
-                </button>
+              <div class="launch-popup__content">
+                <div class="launch-popup__monogram">${launchAnnouncement.monogram || "VC"}</div>
+                <div class="launch-popup__divider"></div>
+                <h2 id="launch-popup-title">
+                  ${titleParts.map((part, index) => `<span${index === 0 ? ' class="launch-popup__title-primary"' : ""}>${part}</span>`).join("")}
+                </h2>
+                <div id="launch-popup-message" class="launch-popup__body">
+                  ${messageParts.map((part) => `<p>${part}</p>`).join("")}
+                </div>
+                <p class="launch-popup__opening">${launchAnnouncement.openingLabel || `Opening ${formattedLaunchDate}`}</p>
+                <div class="launch-popup__actions">
+                  <a class="launch-popup__primary" href="${primaryHref}" data-launch-primary>${launchAnnouncement.primaryLabel || "Check Availability"}</a>
+                </div>
               </div>
-            </div>
-          </section>
-        `;
+            </section>
+          `;
 
-        const dialog = popup.querySelector(".launch-popup__dialog");
-        const focusableSelector =
-          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-        const focusableElements = () =>
-          Array.from(popup.querySelectorAll(focusableSelector)).filter((node) => !node.hasAttribute("hidden"));
-        const previousActiveElement = document.activeElement;
-        let isClosing = false;
-        let handleKeydown;
+          const dialog = popup.querySelector(".launch-popup__dialog");
+          const focusableSelector =
+            'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+          const focusableElements = () =>
+            Array.from(popup.querySelectorAll(focusableSelector)).filter((node) => !node.hasAttribute("hidden"));
+          const previousActiveElement = document.activeElement;
+          let isClosing = false;
+          let handleKeydown;
 
-        const closePopup = () => {
-          if (isClosing) {
-            return;
-          }
-          isClosing = true;
-          popup.classList.add("is-closing");
-          document.body.classList.remove("has-launch-popup");
-          document.removeEventListener("keydown", handleKeydown);
-          try {
-            window.sessionStorage.setItem(sessionKey, "dismissed");
-          } catch (error) {
-            // Ignore storage failures and still close the popup.
-          }
-          window.setTimeout(() => {
-            popup.remove();
-            if (previousActiveElement && typeof previousActiveElement.focus === "function") {
-              previousActiveElement.focus();
-            }
-          }, 350);
-        };
-
-        popup.querySelectorAll("[data-launch-close]").forEach((node) => {
-          node.addEventListener("click", closePopup);
-        });
-
-        const primaryAction = popup.querySelector("[data-launch-primary]");
-        if (primaryAction) {
-          primaryAction.addEventListener("click", () => {
-            closePopup();
-          });
-        }
-
-        handleKeydown = (event) => {
-          if (!document.body.classList.contains("has-launch-popup")) {
-            return;
-          }
-          if (event.key === "Escape") {
-            closePopup();
-            return;
-          }
-          if (event.key === "Tab") {
-            const items = focusableElements();
-            if (!items.length) {
-              event.preventDefault();
-              if (dialog) {
-                dialog.focus();
-              }
+          const closePopup = () => {
+            if (isClosing) {
               return;
             }
-            const first = items[0];
-            const last = items[items.length - 1];
-            if (event.shiftKey && document.activeElement === first) {
-              event.preventDefault();
-              last.focus();
-            } else if (!event.shiftKey && document.activeElement === last) {
-              event.preventDefault();
-              first.focus();
+            isClosing = true;
+            popup.classList.add("is-closing");
+            document.body.classList.remove("has-launch-popup");
+            document.removeEventListener("keydown", handleKeydown);
+            try {
+              window.sessionStorage.setItem(sessionKey, "dismissed");
+            } catch (error) {
+              // Ignore storage failures and still close the popup.
             }
+            window.setTimeout(() => {
+              popup.remove();
+              if (previousActiveElement && typeof previousActiveElement.focus === "function") {
+                previousActiveElement.focus();
+              }
+            }, 350);
+          };
+
+          popup.querySelectorAll("[data-launch-close]").forEach((node) => {
+            node.addEventListener("click", closePopup);
+          });
+
+          const primaryAction = popup.querySelector("[data-launch-primary]");
+          if (primaryAction) {
+            primaryAction.addEventListener("click", () => {
+              closePopup();
+            });
+          }
+
+          handleKeydown = (event) => {
+            if (!document.body.classList.contains("has-launch-popup")) {
+              return;
+            }
+            if (event.key === "Escape") {
+              closePopup();
+              return;
+            }
+            if (event.key === "Tab") {
+              const items = focusableElements();
+              if (!items.length) {
+                event.preventDefault();
+                if (dialog) {
+                  dialog.focus();
+                }
+                return;
+              }
+              const first = items[0];
+              const last = items[items.length - 1];
+              if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+              } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+              }
+            }
+          };
+
+          document.addEventListener("keydown", handleKeydown);
+
+          document.body.appendChild(popup);
+          document.body.classList.add("has-launch-popup");
+          const initialFocusTarget = focusableElements()[0];
+          if (initialFocusTarget && typeof initialFocusTarget.focus === "function") {
+            initialFocusTarget.focus();
+          } else if (dialog) {
+            dialog.focus();
           }
         };
 
-        document.addEventListener("keydown", handleKeydown);
-
-        document.body.appendChild(popup);
-        document.body.classList.add("has-launch-popup");
-        const initialFocusTarget = focusableElements()[0];
-        if (initialFocusTarget && typeof initialFocusTarget.focus === "function") {
-          initialFocusTarget.focus();
-        } else if (dialog) {
-          dialog.focus();
-        }
+        window.setTimeout(mountPopup, Number(launchAnnouncement.delayMs) || 1600);
       }
     }
   }
@@ -451,9 +489,8 @@
     }
   }
 
-  const inquiryForm = document.querySelector("[data-inquiry-form]");
-  if (inquiryForm) {
-    const status = inquiryForm.querySelector("[data-form-status]");
+  const inquiryForms = document.querySelectorAll("[data-inquiry-form]");
+  if (inquiryForms.length) {
     const invalidNameValues = new Set([
       "abc",
       "asdf",
@@ -479,8 +516,6 @@
       "xxx",
       "xyz",
     ]);
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
     const hasRepeatedCharacters = (value) => /(.)\1{2,}/i.test(value);
     const digitsOnly = (value) => value.replace(/\D/g, "");
 
@@ -521,109 +556,98 @@
       return digits.length >= 10 && digits.length <= 15;
     };
 
-    const setStatus = (message, kind) => {
-      if (!status) {
+    const setStatus = (statusNode, message, kind) => {
+      if (!statusNode) {
         return;
       }
-      status.textContent = message;
-      status.setAttribute("data-state", kind || "");
+      statusNode.textContent = message;
+      statusNode.setAttribute("data-state", kind || "");
     };
 
-    inquiryForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    inquiryForms.forEach((inquiryForm) => {
+      const status = inquiryForm.querySelector("[data-form-status]");
 
-      const formData = new FormData(inquiryForm);
-      const payload = {
-        name: (formData.get("name") || "").toString().trim(),
-        phone: (formData.get("phone") || "").toString().trim(),
-        email: (formData.get("email") || "").toString().trim(),
-        eventType: (formData.get("eventType") || "").toString().trim(),
-        preferredDate: (formData.get("preferredDate") || "").toString().trim(),
-        alternateDate: (formData.get("alternateDate") || "").toString().trim(),
-        expectedGuests: (formData.get("expectedGuests") || "").toString().trim(),
-        spacePreference: (formData.get("spacePreference") || "").toString().trim(),
-        roomsRequired: (formData.get("roomsRequired") || "").toString().trim(),
-        preferredContactMethod: (formData.get("preferredContactMethod") || "").toString().trim(),
-        description: (formData.get("description") || "").toString().trim(),
-        numberOfDays: (formData.get("numberOfDays") || "").toString().trim(),
-        sourcePage: window.location.pathname,
-        submittedAt: new Date().toISOString(),
-      };
+      inquiryForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-      const honeypot = (formData.get("website") || "").toString().trim();
-      const hasConsent = formData.get("consent") === "yes";
+        const formData = new FormData(inquiryForm);
+        const payload = {
+          name: (formData.get("name") || "").toString().trim(),
+          phone: (formData.get("phone") || "").toString().trim(),
+          eventType: (formData.get("eventType") || "").toString().trim(),
+          preferredDate: (formData.get("preferredDate") || "").toString().trim(),
+          expectedGuests: (formData.get("expectedGuests") || "").toString().trim(),
+          description: (formData.get("description") || "").toString().trim(),
+          sourcePage: `${window.location.pathname}${inquiryForm.getAttribute("data-form-context") ? `#${inquiryForm.getAttribute("data-form-context")}` : ""}`,
+          submittedAt: new Date().toISOString(),
+        };
 
-      if (honeypot) {
-        setStatus("We couldn't validate the submission. Please try again.", "error");
-        return;
-      }
+        const honeypot = (formData.get("website") || "").toString().trim();
 
-      if (!payload.name || !payload.phone) {
-        setStatus("Please fill in the required name and phone number fields.", "error");
-        return;
-      }
-
-      if (!isValidName(payload.name)) {
-        setStatus("Please enter a real name instead of initials or placeholder text.", "error");
-        return;
-      }
-
-      if (!isValidPhone(payload.phone)) {
-        setStatus("Please enter a valid phone number with 10 to 15 digits.", "error");
-        return;
-      }
-
-      if (payload.email && !emailPattern.test(payload.email)) {
-        setStatus("Please enter a valid email address or leave that field blank.", "error");
-        return;
-      }
-
-      if (!hasConsent) {
-        setStatus("Please confirm that the team can contact you about your enquiry.", "error");
-        return;
-      }
-
-      if (!site.inquiryEndpoint) {
-        setStatus(
-          "The form is ready, but the live Apps Script endpoint still needs to be added in site-data.js before inquiries can be submitted and emailed.",
-          "warning",
-        );
-        return;
-      }
-
-      try {
-        setStatus("Submitting your enquiry...", "loading");
-        const body = new URLSearchParams(payload);
-        const response = await fetch(site.inquiryEndpoint, {
-          method: site.inquiryMethod || "POST",
-          mode: site.inquiryMode || "cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-          },
-          body,
-        });
-
-        if ((site.inquiryMode || "cors") !== "no-cors") {
-          if (!response.ok) {
-            throw new Error(`Submission failed with status ${response.status}`);
-          }
-
-          const result = await response.json().catch(() => null);
-          if (result && result.ok === false) {
-            throw new Error(result.message || "Submission rejected.");
-          }
+        if (honeypot) {
+          setStatus(status, "We couldn't validate the submission. Please try again.", "error");
+          return;
         }
 
-        inquiryForm.reset();
-        setStatus("Your enquiry has been submitted successfully.", "success");
-      } catch (error) {
-        setStatus(
-          error && error.message
-            ? error.message
-            : "We couldn't submit the enquiry right now. Please check the connected endpoint and try again.",
-          "error",
-        );
-      }
+        if (!payload.name || !payload.phone) {
+          setStatus(status, "Please fill in the required name and phone number fields.", "error");
+          return;
+        }
+
+        if (!isValidName(payload.name)) {
+          setStatus(status, "Please enter a real name instead of initials or placeholder text.", "error");
+          return;
+        }
+
+        if (!isValidPhone(payload.phone)) {
+          setStatus(status, "Please enter a valid phone number with 10 to 15 digits.", "error");
+          return;
+        }
+
+        if (!site.inquiryEndpoint) {
+          setStatus(
+            status,
+            "The form is ready, but the live Apps Script endpoint still needs to be added in site-data.js before inquiries can be submitted and emailed.",
+            "warning",
+          );
+          return;
+        }
+
+        try {
+          setStatus(status, "Submitting your enquiry...", "loading");
+          const body = new URLSearchParams(payload);
+          const response = await fetch(site.inquiryEndpoint, {
+            method: site.inquiryMethod || "POST",
+            mode: site.inquiryMode || "cors",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            },
+            body,
+          });
+
+          if ((site.inquiryMode || "cors") !== "no-cors") {
+            if (!response.ok) {
+              throw new Error(`Submission failed with status ${response.status}`);
+            }
+
+            const result = await response.json().catch(() => null);
+            if (result && result.ok === false) {
+              throw new Error(result.message || "Submission rejected.");
+            }
+          }
+
+          inquiryForm.reset();
+          setStatus(status, "Your enquiry has been submitted successfully.", "success");
+        } catch (error) {
+          setStatus(
+            status,
+            error && error.message
+              ? error.message
+              : "We couldn't submit the enquiry right now. Please check the connected endpoint and try again.",
+            "error",
+          );
+        }
+      });
     });
   }
 })();

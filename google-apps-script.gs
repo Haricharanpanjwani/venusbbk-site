@@ -24,7 +24,6 @@ const INVALID_NAME_VALUES = new Set([
   "xxx",
   "xyz",
 ]);
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 function digitsOnly_(value) {
   return String(value || "").replace(/\D/g, "");
@@ -68,10 +67,6 @@ function isValidPhone_(value) {
   return digits.length >= 10 && digits.length <= 15;
 }
 
-function isValidEmail_(value) {
-  return !value || EMAIL_PATTERN.test(String(value).trim());
-}
-
 function getOrCreateSheet_() {
   // Use a fixed sheet so the deployed web app always writes to the correct spreadsheet.
   const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
@@ -87,15 +82,9 @@ function getOrCreateSheet_() {
       "submitted_at",
       "name",
       "phone",
-      "email",
       "event_type",
       "preferred_date",
-      "alternate_date",
       "expected_guests",
-      "space_preference",
-      "rooms_required",
-      "number_of_days",
-      "preferred_contact_method",
       "description",
       "source_page",
     ]);
@@ -112,15 +101,9 @@ function sendInquiryEmail_(payload) {
     "",
     "Name: " + (payload.name || ""),
     "Phone: " + (payload.phone || ""),
-    "Email: " + (payload.email || ""),
     "Event type: " + (payload.eventType || ""),
     "Preferred date: " + (payload.preferredDate || ""),
-    "Alternate date: " + (payload.alternateDate || ""),
     "Expected guests: " + (payload.expectedGuests || ""),
-    "Indoor / outdoor preference: " + (payload.spacePreference || ""),
-    "Rooms required: " + (payload.roomsRequired || ""),
-    "Number of days: " + (payload.numberOfDays || ""),
-    "Preferred contact method: " + (payload.preferredContactMethod || ""),
     "Source page: " + (payload.sourcePage || ""),
     "",
     "Message:",
@@ -143,7 +126,6 @@ function doPost(e) {
   const submittedAt = data.submittedAt || new Date().toISOString();
   const name = (data.name || "").trim();
   const phone = (data.phone || "").trim();
-  const email = (data.email || "").trim();
 
   if (!name || !phone) {
     return ContentService.createTextOutput(
@@ -172,28 +154,13 @@ function doPost(e) {
     ).setMimeType(ContentService.MimeType.JSON);
   }
 
-  if (!isValidEmail_(email)) {
-    return ContentService.createTextOutput(
-      JSON.stringify({
-        ok: false,
-        message: "Please enter a valid email address or leave that field blank.",
-      }),
-    ).setMimeType(ContentService.MimeType.JSON);
-  }
-
   sheet.appendRow([
     submittedAt,
     name,
     phone,
-    email,
     (data.eventType || "").trim(),
     (data.preferredDate || "").trim(),
-    (data.alternateDate || "").trim(),
     (data.expectedGuests || "").trim(),
-    (data.spacePreference || "").trim(),
-    (data.roomsRequired || "").trim(),
-    (data.numberOfDays || "").trim(),
-    (data.preferredContactMethod || "").trim(),
     (data.description || "").trim(),
     (data.sourcePage || "").trim(),
   ]);
@@ -202,15 +169,9 @@ function doPost(e) {
     submittedAt: submittedAt,
     name: name,
     phone: phone,
-    email: email,
     eventType: (data.eventType || "").trim(),
     preferredDate: (data.preferredDate || "").trim(),
-    alternateDate: (data.alternateDate || "").trim(),
     expectedGuests: (data.expectedGuests || "").trim(),
-    spacePreference: (data.spacePreference || "").trim(),
-    roomsRequired: (data.roomsRequired || "").trim(),
-    numberOfDays: (data.numberOfDays || "").trim(),
-    preferredContactMethod: (data.preferredContactMethod || "").trim(),
     description: (data.description || "").trim(),
     sourcePage: (data.sourcePage || "").trim(),
   });

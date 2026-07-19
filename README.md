@@ -54,9 +54,10 @@ Submitted inquiry columns:
 - `name`
 - `phone`
 - `event_type`
+- `preferred_date`
 - `expected_guests`
-- `number_of_days`
 - `description`
+- `source_page`
 
 For GitHub Pages custom domain support, keep:
 

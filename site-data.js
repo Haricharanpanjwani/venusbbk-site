@@ -15,7 +15,7 @@ window.VENUS_SITE = {
   mapsHref:
     "https://www.google.com/maps/place/Venus+Club+and+Banquet/data=!4m2!3m1!1s0x0:0x545008718fb33479?sa=X&ved=1t:2428&ictx=111",
   email: "bookings@venusbbk.com",
-  guestCapacity: "Capacity details available on enquiry",
+  guestCapacity: "Up to 1000 guests",
   roomCount: "10 guest rooms",
   serviceAreas: [
     "Lucknow",
@@ -34,10 +34,39 @@ window.VENUS_SITE = {
   seoKeywords:
     "Venus Club, Venus Banquet, Venus Outdoor Lawn, Club, Outdoor, Event, Business Event, Venue, Marriage Hall, Banquet Hall, Wedding Venue, Outdoor Lawn, Corporate Event Venue, Barabanki, Lucknow",
   heroBlurb:
-    "An elegant destination in Barabanki for weddings, celebrations, corporate gatherings, and memorable stays.",
+    "A refined venue in Barabanki for weddings, celebrations, corporate gatherings, and guest stays.",
   metaDescription:
     "Venus Club & Banquet Hall is a premium event venue in Barabanki near Lucknow with a banquet hall, outdoor celebration space, guest accommodation, and enquiry-first planning.",
   launchBannerText: "Launching on July 29, 2026",
+  venueFacts: [
+    {
+      title: "Up to 1000 guests",
+      detail: "Suitable for weddings, receptions, and larger hosted gatherings",
+    },
+    {
+      title: "Banquet hall and outdoor lawn",
+      detail: "Indoor and open-air hosting in one destination",
+    },
+    {
+      title: "10 guest rooms",
+      detail: "Useful for wedding families and travelling guests",
+    },
+    {
+      title: "Barabanki and Lucknow access",
+      detail: "Convenient for local events and nearby city guests",
+    },
+  ],
+  eventTypes: [
+    "Wedding",
+    "Reception",
+    "Engagement",
+    "Birthday",
+    "Anniversary",
+    "Family Function",
+    "Corporate Event",
+    "Conference / Seminar",
+    "Private Gathering",
+  ],
   canonicalBase: "https://venusbbk.com",
   inquiryEndpoint:
     "https://script.google.com/macros/s/AKfycbyk7WsEajmK8mro2jc866nGdELNdnj3Mc1gRtnJs_iujGxtAPbK5tDbsWujiz0Df351oQ/exec",
@@ -46,14 +75,14 @@ window.VENUS_SITE = {
   launchAnnouncement: {
     enabled: true,
     date: "2026-07-29",
+    delayMs: 1800,
     title: "Venus Club\nOpening Summer 2026",
     message:
-      "A new destination for extraordinary weddings, celebrations and private stays.\n\nWe are carefully preparing every detail and are now welcoming early enquiries and private venue appointments.",
-    primaryLabel: "Plan Your Event",
+      "Now welcoming early enquiries for weddings, celebrations, private stays, and venue visits ahead of our opening.",
+    primaryLabel: "Check Availability",
     primaryHref: "contact.html#schedule-visit",
-    secondaryLabel: "Continue to Website",
-    image: "venue-hall.jpeg",
-    imageAlt: "Interior ambience at Venus Club",
+    image: "venue-garden.jpeg",
+    imageAlt: "Venue ambience at Venus Club",
     monogram: "VC",
     openingLabel: "Opening 29 July 2026",
   },
