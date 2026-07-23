@@ -38,6 +38,7 @@ window.VENUS_SITE = {
   metaDescription:
     "Venus Club & Banquet Hall is a premium event venue in Barabanki near Lucknow with a banquet hall, outdoor celebration space, guest accommodation, and enquiry-first planning.",
   launchBannerText: "Launching on July 30, 2026",
+  primaryCtaLabel: "Register for Inauguration",
   venueFacts: [
     {
       title: "Up to 1000 guests",
@@ -79,7 +80,7 @@ window.VENUS_SITE = {
     title: "Venus Club\nOpening Summer 2026",
     message:
       "Now welcoming early enquiries for weddings, celebrations, private stays, and venue visits ahead of our opening.",
-    primaryLabel: "Check Availability",
+    primaryLabel: "Register for Inauguration",
     primaryHref: "contact.html#schedule-visit",
     image: "venue-garden.jpeg",
     imageAlt: "Venue ambience at Venus Club",
@@ -138,3 +139,13 @@ window.VENUS_SITE = {
     },
   ],
 };
+
+// Keep the primary inauguration call-to-action consistent across all pages.
+document.addEventListener("DOMContentLoaded", () => {
+  const label = window.VENUS_SITE.primaryCtaLabel;
+  document.querySelectorAll("a, button").forEach((element) => {
+    if (element.textContent.trim() === "Check Availability") {
+      element.textContent = label;
+    }
+  });
+});
