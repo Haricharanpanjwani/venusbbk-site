@@ -140,12 +140,135 @@ window.VENUS_SITE = {
   ],
 };
 
-// Keep the primary inauguration call-to-action consistent across all pages.
+// Keep inauguration calls-to-action consistent and configure the registration form.
 document.addEventListener("DOMContentLoaded", () => {
   const label = window.VENUS_SITE.primaryCtaLabel;
-  document.querySelectorAll("a, button").forEach((element) => {
-    if (element.textContent.trim() === "Check Availability") {
+
+  document.querySelectorAll("a, button, h1, h2, h3, p, span").forEach((element) => {
+    if (element.children.length) return;
+    const text = element.textContent.trim();
+    if (/^check(?: for)? availability[.!]?$/i.test(text)) {
       element.textContent = label;
     }
   });
+
+  const form = document.querySelector("[data-inquiry-form]");
+  if (!form) return;
+
+  const shell = form.closest(".form-shell");
+  const heading = shell && shell.querySelector("h3");
+  const kicker = shell && shell.querySelector(".form-kicker");
+  if (heading) heading.textContent = "Register for the inauguration.";
+  if (kicker) kicker.textContent = "Please share these four details so the Venus team can confirm your registration.";
+
+  form.innerHTML = `
+    <div class="form-grid">
+      <label class="field">
+        <span>Name <em>*</em></span>
+        <input type="text" name="name" required minlength="3" maxlength="80" autocomplete="name" placeholder="Your full name" />
+      </label>
+      <label class="field">
+        <span>Phone number <em>*</em></span>
+        <input type="tel" name="phone" required inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" />
+      </label>
+      <label class="field">
+        <span>Email <em>*</em></span>
+        <input type="email" name="email" required maxlength="120" autocomplete="email" placeholder="you@example.com" />
+      </label>
+      <label class="field">
+        <span>Approximate number of guests <em>*</em></span>
+        <input type="number" name="expectedGuests" required min="1" max="5000" step="1" inputmode="numeric" placeholder="Approximate guests" />
+      </label>
+    </div>
+    <label class="field field--hidden" aria-hidden="true">
+      <span>Website</span>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" />
+    </label>
+    <div class="form-actions">
+      <button class="button" type="submit">Register for Inauguration</button>
+      <p class="form-note">All four fields are required.</p>
+    </div>
+    <p class="form-status" data-form-status aria-live="polite"></p>
+  `;
+
+  const setStatus = (message, state) => {
+    const status = form.querySelector("[data-form-status]");
+    if (!status) return;
+    status.textContent = message;
+    status.setAttribute("data-state", state || "");
+  };
+
+  form.addEventListener(
+    "submit",
+    async (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      const data = new FormData(form);
+      const name = String(data.get("name") || "").trim();
+      const phone = String(data.get("phone") || "").trim();
+      const email = String(data.get("email") || "").trim();
+      const expectedGuests = String(data.get("expectedGuests") || "").trim();
+      const honeypot = String(data.get("website") || "").trim();
+      const phoneDigits = phone.replace(/\D/g, "");
+      const guestCount = Number(expectedGuests);
+      const emailInput = form.querySelector('input[name="email"]');
+
+      if (honeypot) {
+        setStatus("We couldn't validate the registration. Please try again.", "error");
+        return;
+      }
+      if (!name || !phone || !email || !expectedGuests) {
+        setStatus("Please complete all four required fields.", "error");
+        return;
+      }
+      if (name.length < 3 || !/[A-Za-z]/.test(name)) {
+        setStatus("Please enter a valid full name.", "error");
+        return;
+      }
+      if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+        setStatus("Please enter a valid phone number with 10 to 15 digits.", "error");
+        return;
+      }
+      if (!emailInput || !emailInput.checkValidity()) {
+        setStatus("Please enter a valid email address.", "error");
+        return;
+      }
+      if (!Number.isInteger(guestCount) || guestCount < 1 || guestCount > 5000) {
+        setStatus("Please enter a guest count between 1 and 5000.", "error");
+        return;
+      }
+
+      const payload = {
+        name,
+        phone,
+        email,
+        expectedGuests,
+        eventType: "Inauguration Registration",
+        description: `Inauguration registration for approximately ${expectedGuests} guests.`,
+        sourcePage: `${window.location.pathname}#inauguration-registration`,
+        submittedAt: new Date().toISOString(),
+      };
+
+      try {
+        setStatus("Submitting your registration...", "loading");
+        const response = await fetch(window.VENUS_SITE.inquiryEndpoint, {
+          method: window.VENUS_SITE.inquiryMethod || "POST",
+          mode: window.VENUS_SITE.inquiryMode || "cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+          body: new URLSearchParams(payload),
+        });
+
+        if ((window.VENUS_SITE.inquiryMode || "cors") !== "no-cors" && !response.ok) {
+          throw new Error("Registration could not be submitted.");
+        }
+
+        form.reset();
+        setStatus("Your inauguration registration has been submitted successfully.", "success");
+      } catch (error) {
+        setStatus("We couldn't submit your registration right now. Please try again or contact us directly.", "error");
+      }
+    },
+    true,
+  );
 });
