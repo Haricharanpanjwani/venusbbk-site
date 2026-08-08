@@ -38,7 +38,7 @@ window.VENUS_SITE = {
   metaDescription:
     "Venus Club & Banquet Hall is a premium event venue in Barabanki near Lucknow with a banquet hall, outdoor celebration space, guest accommodation, and enquiry-first planning.",
   launchBannerText: "Launching on July 30, 2026",
-  primaryCtaLabel: "Register for Inauguration",
+  primaryCtaLabel: "Check for Availability",
   venueFacts: [
     {
       title: "Up to 1000 guests",
@@ -80,7 +80,7 @@ window.VENUS_SITE = {
     title: "Venus Club\nOpening Summer 2026",
     message:
       "Now welcoming early enquiries for weddings, celebrations, private stays, and venue visits ahead of our opening.",
-    primaryLabel: "Register for Inauguration",
+    primaryLabel: "Check for Availability",
     primaryHref: "contact.html#schedule-visit",
     image: "venus-entrance-floral.jpeg",
     imageAlt: "Decorated arrival entrance at Venus Club",
@@ -140,7 +140,7 @@ window.VENUS_SITE = {
   ],
 };
 
-// Keep inauguration calls-to-action consistent and configure the registration form.
+// Keep availability calls-to-action consistent and configure the enquiry form.
 document.addEventListener("DOMContentLoaded", () => {
   const label = window.VENUS_SITE.primaryCtaLabel;
 
@@ -158,8 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const shell = form.closest(".form-shell");
   const heading = shell && shell.querySelector("h3");
   const kicker = shell && shell.querySelector(".form-kicker");
-  if (heading) heading.textContent = "Register for the inauguration.";
-  if (kicker) kicker.textContent = "Please share these four details so the Venus team can confirm your registration.";
+  if (heading) heading.textContent = "Check for availability.";
+  if (kicker) kicker.textContent = "Share your details and the Venus team will get back to you about availability.";
 
   form.innerHTML = `
     <div class="form-grid">
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <input type="text" name="website" tabindex="-1" autocomplete="off" />
     </label>
     <div class="form-actions">
-      <button class="button" type="submit">Register for Inauguration</button>
+      <button class="button" type="submit">Check for Availability</button>
       <p class="form-note">All four fields are required.</p>
     </div>
     <p class="form-status" data-form-status aria-live="polite"></p>
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const emailInput = form.querySelector('input[name="email"]');
 
       if (honeypot) {
-        setStatus("We couldn't validate the registration. Please try again.", "error");
+        setStatus("We couldn't validate the enquiry. Please try again.", "error");
         return;
       }
       if (!name || !phone || !email || !expectedGuests) {
@@ -245,13 +245,13 @@ document.addEventListener("DOMContentLoaded", () => {
         email,
         expectedGuests,
         eventType: "Inauguration Registration",
-        description: `Inauguration registration for approximately ${expectedGuests} guests.`,
-        sourcePage: `${window.location.pathname}#inauguration-registration`,
+        description: `Availability enquiry for approximately ${expectedGuests} guests.`,
+        sourcePage: `${window.location.pathname}#schedule-visit`,
         submittedAt: new Date().toISOString(),
       };
 
       try {
-        setStatus("Submitting your registration...", "loading");
+        setStatus("Checking availability...", "loading");
         const response = await fetch(window.VENUS_SITE.inquiryEndpoint, {
           method: window.VENUS_SITE.inquiryMethod || "POST",
           mode: window.VENUS_SITE.inquiryMode || "cors",
@@ -264,9 +264,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         form.reset();
-        setStatus("Your inauguration registration has been submitted successfully.", "success");
+        setStatus("Your availability enquiry has been submitted successfully.", "success");
       } catch (error) {
-        setStatus("We couldn't submit your registration right now. Please try again or contact us directly.", "error");
+        setStatus("We couldn't submit your enquiry right now. Please try again or contact us directly.", "error");
       }
     },
     true,

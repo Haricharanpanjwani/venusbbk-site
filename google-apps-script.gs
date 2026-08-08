@@ -94,7 +94,7 @@ function getOrCreateSheet_() {
 }
 
 function sendInquiryEmail_(payload) {
-  const recipient = "haricharan.panjwani@gmail.com";
+  const recipient = "vnsbanquet@gmail.com";
   const subject = "New Venus Club Inquiry";
   const lines = [
     "A new inquiry was submitted on venusbbk.com.",
