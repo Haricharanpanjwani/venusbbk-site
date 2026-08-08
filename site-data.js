@@ -14,7 +14,7 @@ window.VENUS_SITE = {
   addressLine2: "Uttar Pradesh 225003, India",
   mapsHref:
     "https://www.google.com/maps/place/Venus+Club+and+Banquet/data=!4m2!3m1!1s0x0:0x545008718fb33479?sa=X&ved=1t:2428&ictx=111",
-  email: "bookings@venusbbk.com",
+  email: "vnsbanquet@gmail.com",
   guestCapacity: "Up to 1000 guests",
   roomCount: "10 guest rooms",
   serviceAreas: [
