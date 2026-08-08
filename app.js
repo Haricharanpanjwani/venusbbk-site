@@ -165,7 +165,7 @@
               <button class="launch-popup__close" type="button" aria-label="Close launch announcement" data-launch-close>×</button>
               <div class="launch-popup__media" aria-hidden="true">
                 <img
-                  src="${launchAnnouncement.image || "venue-hall.jpeg"}"
+                  src="${launchAnnouncement.image || "venus-hall-grand.jpeg"}"
                   alt=""
                   loading="eager"
                 />
@@ -286,7 +286,7 @@
 
     const scenes = {
       hall: {
-        image: "venue-hall.jpeg",
+        image: "venus-hall-grand.jpeg",
         alt: "Main banquet hall interior at Venus Club",
         kicker: "The Banquet Hall",
         title: "Step into the indoor space where the main celebration takes shape",
@@ -294,12 +294,12 @@
           "Use the walkthrough to understand how the indoor hall sets the tone for ceremonies, receptions, and more formal hosted events.",
       },
       garden: {
-        image: "outdoor_lawn.png",
-        alt: "Outdoor event space at Venus Club with evening ambience",
-        kicker: "The Outdoor Celebration Space",
-        title: "Move outdoors for the atmosphere, lighting, and open-air flexibility",
+        image: "venus-entrance-floral.jpeg",
+        alt: "Decorated outdoor arrival space at Venus Club",
+        kicker: "Arrival & Outdoor Experience",
+        title: "Move outside for the welcome, lighting, and first impression",
         text:
-          "The lawn introduces a different rhythm for guest arrivals, evening functions, outdoor dining moods, and more relaxed social celebrations.",
+          "The outdoor arrival setting introduces a different rhythm for guest welcomes, reception entries, celebration photography, and hosted evening flow.",
       },
     };
 

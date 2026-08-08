@@ -579,7 +579,7 @@ li {
   box-shadow: var(--shadow-xl);
   background:
     linear-gradient(180deg, rgba(19, 15, 11, 0.03), rgba(19, 15, 11, 0.22)),
-    url("venue-garden.jpeg") center/cover;
+    url("venus-entrance-floral.jpeg") center/cover;
 }
 
 .page-hero__visual {
@@ -593,13 +593,13 @@ li {
 .hero-visual--contact {
   background:
     linear-gradient(180deg, rgba(13, 11, 10, 0.06), rgba(13, 11, 10, 0.52)),
-    url("venue-hall.jpeg") center/cover;
+    url("venus-hall-grand.jpeg") center/cover;
 }
 
 .hero-visual--gallery {
   background:
     linear-gradient(180deg, rgba(13, 11, 10, 0.06), rgba(13, 11, 10, 0.48)),
-    url("outdoor_lawn.png") center/cover;
+    url("venus-entrance-arch.jpeg") center/cover;
 }
 
 .hero-overlay {
